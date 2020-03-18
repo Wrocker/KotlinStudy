@@ -23,6 +23,11 @@ android {
         }
     }
 
+    android {
+        viewBinding {
+            enabled = true
+        }
+    }
 }
 
 dependencies {
