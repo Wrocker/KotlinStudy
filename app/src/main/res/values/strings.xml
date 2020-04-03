@@ -2,4 +2,5 @@
     <string name="app_name">KotlinStudy</string>
 
     <string name="imgDesc">imgDescribe</string>
+    <string name="kotlinStudy">kotlin学习</string>
 </resources>

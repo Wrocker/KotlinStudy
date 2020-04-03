@@ -2,8 +2,7 @@ package com.rocker.kotlinstudy.ui.adapter
 
 import android.content.Context
 import android.view.ViewGroup
-import com.rocker.kotlinstudy.base.BaseRecAdapter
-import com.rocker.kotlinstudy.base.VBViewHolder
+import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.databinding.ItemOptionBinding
 
 /**
@@ -15,12 +14,15 @@ class OptionItemAdapter(context: Context) : BaseRecAdapter<String>(context) {
         return OptionHolder(ItemOptionBinding.inflate(inflater, parent, false))
     }
 
-    class OptionHolder(var optionBinding : ItemOptionBinding) : VBViewHolder(optionBinding){
-
-    }
-
     override fun onBindViewHolder(holder: VBViewHolder, position: Int) {
         val optionHolder = holder as OptionHolder
-        optionHolder.optionBinding.tvOption.text = "balablaba"
+        optionHolder.optionBinding.tvOption.text = data?.get(position)
+        optionHolder.optionBinding.root.tag = position
+    }
+
+    inner class OptionHolder(var optionBinding : ItemOptionBinding) : VBViewHolder(optionBinding){
+        init {
+            optionBinding.root.setOnClickListener(this@OptionItemAdapter)
+        }
     }
 }

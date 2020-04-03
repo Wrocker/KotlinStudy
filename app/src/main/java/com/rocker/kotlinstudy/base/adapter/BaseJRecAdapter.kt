@@ -1,4 +1,4 @@
-package com.rocker.kotlinstudy.base
+package com.rocker.kotlinstudy.base.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

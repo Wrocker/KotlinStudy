@@ -1,4 +1,4 @@
-package com.rocker.kotlinstudy.base
+package com.rocker.kotlinstudy.base.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

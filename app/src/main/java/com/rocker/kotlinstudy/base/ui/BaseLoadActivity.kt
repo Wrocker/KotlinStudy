@@ -1,4 +1,4 @@
-package com.rocker.kotlinstudy.base
+package com.rocker.kotlinstudy.base.ui
 
 import android.view.View
 import androidx.viewbinding.ViewBinding
@@ -17,6 +17,9 @@ abstract class BaseLoadActivity<L : ViewBinding> : BaseActivity<LayoutBaseloadBi
 
     override fun initView() {
         rootBinding.tvTitle.text = "标题"
+        rootBinding.flBack.setOnClickListener {
+            onBackPressed()
+        }
         Thread(
             Runnable {
                 for ( i in 1..4 step 1){
