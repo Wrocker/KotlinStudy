@@ -4,7 +4,11 @@
     android:id="@+id/tv_text"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textColor="@color/colorAccent"
+    android:paddingStart="@dimen/space13"
+    android:paddingEnd="@dimen/space13"
+    android:paddingTop="@dimen/space6"
+    android:paddingBottom="@dimen/space6"
+    android:textColor="@color/color323232"
     tools:text="hadfakdf"
-    android:background="@color/colorPrimaryDark"
+    android:textSize="@dimen/fontNormal"
     />
