@@ -11,6 +11,8 @@ abstract class BaseLoadActivity<L : ViewBinding> : BaseActivity<LayoutBaseloadBi
 
     lateinit var loadBinding : L
 
+    private val step = 2
+
     override fun initLayout(): LayoutBaseloadBinding {
         return LayoutBaseloadBinding.inflate(layoutInflater)
     }
@@ -22,11 +24,11 @@ abstract class BaseLoadActivity<L : ViewBinding> : BaseActivity<LayoutBaseloadBi
         }
         Thread(
             Runnable {
-                for ( i in 1..4 step 1){
+                for ( i in 1..step step 1){
                     Thread.sleep(1000)
                     runOnUiThread {
                         rootBinding.tvSub.text = i.toString()
-                        if(i == 4){
+                        if(i == step){
                             rootBinding.vsContent.layoutResource = initLoadLayout()
                             loadBinding = initLoadBinding(rootBinding.vsContent.inflate())
                             initLoad()
