@@ -7,4 +7,5 @@
 
 
     <dimen name="fontNormal">14sp</dimen>
+    <dimen name="fontMedium">16sp</dimen>
 </resources>

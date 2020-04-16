@@ -3,4 +3,7 @@
 
     <string name="imgDesc">imgDescribe</string>
     <string name="kotlinStudy">kotlin学习</string>
+
+    <string name="basicSyntax">基本语法</string>
+    <string name="idioms">习惯用法</string>
 </resources>

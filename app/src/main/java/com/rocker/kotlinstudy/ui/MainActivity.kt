@@ -3,10 +3,11 @@ package com.rocker.kotlinstudy.ui
 import android.content.Intent
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.databinding.ActivityMainBinding
-import com.rocker.kotlinstudy.ui.activity.BasicActivity
+import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
 
 /**
@@ -24,14 +25,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         rootBinding.rvList.layoutManager = LinearLayoutManager(this)
         adapter = OptionItemAdapter(this)
         val data = ArrayList<String>(3)
-        data.add("基本语法")
+        data.add(getString(R.string.basicSyntax))
+        data.add(getString(R.string.idioms))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
                 when(view?.tag){
                     0 -> {
-//                        startActivity(Intent(this@MainActivity, BasicActivity().javaClass))
                         startActivity(Intent(this@MainActivity, BasicActivity::class.java))
+                    }
+                    1 -> {
+
                     }
                 }
             }

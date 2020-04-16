@@ -1,10 +1,10 @@
-package com.rocker.kotlinstudy.ui.activity
+package com.rocker.kotlinstudy.ui.activity.start
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.ui.BaseLoadActivity
-import com.rocker.kotlinstudy.databinding.ActivityBasicBinding
+import com.rocker.kotlinstudy.databinding.ActivityListBinding
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.util.ToastUtil
 import kotlin.properties.Delegates
@@ -12,17 +12,18 @@ import kotlin.properties.Delegates
 /**
  * 基本语法
  */
-class BasicActivity : BaseLoadActivity<ActivityBasicBinding>() {
+class BasicActivity : BaseLoadActivity<ActivityListBinding>() {
 
     override fun initLoadLayout(): Int {
-        return R.layout.activity_basic
+        return R.layout.activity_list
     }
 
-    override fun initLoadBinding(inflate: View): ActivityBasicBinding {
-        return ActivityBasicBinding.bind(inflate)
+    override fun initLoadBinding(inflate: View): ActivityListBinding {
+        return ActivityListBinding.bind(inflate)
     }
 
     override fun initLoad() {
+        loadBinding.tvTitle.text = getString(R.string.basicSyntax)
         loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
         val adapter = ContentLayoutAdapter(this)
         val data = ArrayList<ContentLayoutAdapter.LayType>()
