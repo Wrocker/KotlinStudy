@@ -58,6 +58,7 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
         println("equals: ${fruit0.equals(fruit1)} toString: ${fruit0.toString()}")
     }
 
+    //只读list
     val fruits = listOf<String>("西瓜", "苹果", "香蕉")
 
     /**
@@ -72,4 +73,52 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
         if("苹果" in fruits)
             println("apple is in fruit")
     }
+
+    /**
+     * 类型判断Instance Checks
+     */
+    fun instanceCheck(x: Any){
+        when(x){
+            is String -> println("is String")
+            is FruitBean -> println("is fruit bean")
+            else -> println("other")
+        }
+    }
+
+    /**
+     * 遍历 map/pair型list
+     *  Traversing a map/list of pairs
+     */
+    fun traversingMap(){
+        //只读 map
+        val map = mapOf<String, Int>("a" to 1, "b" to 2, "c" to 3)
+        //访问 map
+        println("map a value is ${map["a"]}")
+        for((k, v) in map){
+            println("key $k to value $v")
+        }
+
+        val steps = mapOf(Pair(1, "first"), Pair(2, "second"))
+        for((k, v) in steps){
+            println("key $k to value $v")
+        }
+    }
+
+    /**
+     * 使用区间Using ranges
+     */
+    fun rangeSimple(){
+        for (i in 1..100) { print(i) }  // 闭区间：包含 100
+        println()
+        for (i in 1 until 100) { print(i) } // 半开区间：不包含 100
+        println()
+        for (x in 2..10 step 2) { print(x) }
+        println()
+        for (x in 10 downTo 1) { print(x) }
+        println()
+        if (2 in 1..10) { print("2 is in 1..10") }
+    }
+
+    //延迟属性
+    val p: String by lazy { "excuse me?" }
 }
