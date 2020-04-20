@@ -121,4 +121,42 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
 
     //延迟属性
     val p: String by lazy { "excuse me?" }
+
+    /**
+     * 扩展函数
+     */
+    private fun String.getThird(): String{
+        return get(3).toString()
+    }
+
+    fun getThirdChar(){
+        println("the third is ${"Three".getThird()}")
+    }
+
+    /**
+     * 单例
+     */
+    object Option{
+        val OPTION_EXIT = 2003
+    }
+
+    /**
+     * null判断
+     */
+    fun nullExemple(data: List<String>?){
+        //判断不能为null
+        println("${data?.size}")
+        //If not null and else 缩写
+        println("${data?.size ?: 0}")
+        //if null 执行一个语句
+        data?.get(0) ?: println("data is null")
+        //在可能会空的集合中取第一元素
+        println(data?.firstOrNull() ?: "")
+        //if not null 执行代码
+        data?.let {
+            println("data is not null ${it.size}")
+        }
+        //映射可空值（如果非空的话）
+        println(data?.let {println(it[0]) } ?: "default")
+    }
 }
