@@ -1,10 +1,18 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.databinding.ActivityListBinding
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
+import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
+import java.math.BigDecimal
+import java.nio.file.Files
+import java.nio.file.Paths
+import javax.xml.transform.TransformerException
+import kotlin.math.PI
 
 /**
  * 常用方法
@@ -158,5 +166,98 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
         }
         //映射可空值（如果非空的话）
         println(data?.let {println(it[0]) } ?: "default")
+
+        //使用可空布尔
+        val b: Boolean? = data == null
+        if (b == true) {
+            println("data is not null")
+        } else {
+            println("data is null")
+        }
+        //交换两个变量
+        var x = 1
+        var y = 2
+        x = y.also { y = x }
     }
+
+    /**
+     * 返回 when 表达式
+     */
+    fun transColor2Sex(color: String): Int{
+        return when (color){
+            "white" -> 0xFFFFFF
+            "black" -> 0x000000
+            else -> throw TransformerException("出错")
+        }
+    }
+
+    /**
+     * “try/catch”表达式
+     */
+    fun tryCatchSimple(){
+        val result = try {
+            transColor2Sex("")
+        }catch (e: Exception){
+            println("trans Fail")
+        }
+    }
+
+    /**
+     * “if”表达式
+     */
+    fun ifSimple(string: String): String{
+        return if(string.startsWith("a")) "a start" else "another"
+    }
+
+    /**
+     * 返回类型为 Unit 的方法的 Builder 风格用法
+     */
+    fun arrayOfMinusOnes(size: Int): IntArray{
+        return IntArray(size).apply { fill(1) }
+    }
+
+    /**
+     * 单表达式函数
+     */
+    fun getAnswer(x: Int) = PI * x * x
+
+    /**
+     * 对一个对象实例调用多个方法 （with）
+     */
+    fun withSimple(){
+        val temp = OptionItemAdapter(this)
+        with(temp){
+            data = arrayListOf("1", "2")
+
+        }
+    }
+
+    /**
+     * 配置对象的属性（apply）
+     */
+    fun applySimple(){
+        val temp = OptionItemAdapter(this).apply {
+            data = arrayListOf("1", "2")
+        }
+
+        val stream = Files.newInputStream(Paths.get("/some/file.txt"))
+        stream.buffered().reader().use { reader ->
+            println(reader.readText())
+        }
+    }
+
+    /**
+     * todo 没懂
+     * 对于需要泛型信息的泛型函数的适宜形式
+     */
+    //  public final class Gson {
+//     ……
+//     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
+//     ……
+    inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
+
+    /**
+     * 将代码标记为不完整
+     */
+    fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 }
