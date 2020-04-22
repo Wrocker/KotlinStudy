@@ -7,7 +7,9 @@ import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.databinding.ActivityMainBinding
+import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
+import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
 
 /**
@@ -35,7 +37,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         startActivity(Intent(this@MainActivity, BasicActivity::class.java))
                     }
                     1 -> {
-
+                        startActivity(Intent(this@MainActivity, IdiomsActivity::class.java))
+                    }
+                    2 -> {
+                        startActivity(Intent(this@MainActivity, BasicTypesActivity::class.java))
                     }
                 }
             }

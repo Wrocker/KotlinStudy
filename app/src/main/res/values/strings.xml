@@ -6,4 +6,6 @@
 
     <string name="basicSyntax">基本语法</string>
     <string name="idioms">习惯用法</string>
+
+    <string name="basicTypes">基本类型</string>
 </resources>
