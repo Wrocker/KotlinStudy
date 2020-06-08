@@ -1,11 +1,14 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
+import android.os.Build
+import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.rocker.kotlinstudy.R
-import com.rocker.kotlinstudy.base.ui.BaseActivity
-import com.rocker.kotlinstudy.databinding.ActivityListBinding
+import com.rocker.kotlinstudy.base.ui.BaseLoadActivity
+import com.rocker.kotlinstudy.databinding.LayoutListBinding
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
 import java.math.BigDecimal
@@ -17,14 +20,23 @@ import kotlin.math.PI
 /**
  * 常用方法
  */
-class IdiomsActivity : BaseActivity<ActivityListBinding>() {
-    override fun initLayout(): ActivityListBinding {
-        return ActivityListBinding.inflate(layoutInflater)
+class IdiomsActivity : BaseLoadActivity<LayoutListBinding>() {
+
+    override fun initLoadLayout(): Int {
+        return R.layout.layout_list
+    }
+
+    override fun initLoadBinding(inflate: View): LayoutListBinding {
+        return LayoutListBinding.bind(inflate)
     }
 
     override fun initView() {
+        super.initView()
         rootBinding.tvTitle.text = getString(R.string.idioms)
-        rootBinding.rvContent.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun initLoad() {
+        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
         val adapter = ContentLayoutAdapter(this)
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦️ 创建 DTOs（POJOs/POCOs）"))
@@ -33,8 +45,7 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_main))
         data.add(ContentLayoutAdapter.LayType("♦️ 方法"))
         adapter.data = data
-        rootBinding.rvContent.adapter = adapter
-
+        loadBinding.rvContent.adapter = adapter
     }
 
     //创建 DTOs（POJOs/POCOs） 理解为bean类
@@ -235,6 +246,7 @@ class IdiomsActivity : BaseActivity<ActivityListBinding>() {
     /**
      * 配置对象的属性（apply）
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun applySimple(){
         val temp = OptionItemAdapter(this).apply {
             data = arrayListOf("1", "2")

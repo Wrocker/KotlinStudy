@@ -18,7 +18,6 @@ abstract class BaseLoadActivity<L : ViewBinding> : BaseActivity<LayoutBaseloadBi
     }
 
     override fun initView() {
-        rootBinding.tvTitle.text = "标题"
         rootBinding.flBack.setOnClickListener {
             onBackPressed()
         }

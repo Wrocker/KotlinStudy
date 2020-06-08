@@ -29,6 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val data = ArrayList<String>(3)
         data.add(getString(R.string.basicSyntax))
         data.add(getString(R.string.idioms))
+        data.add(getString(R.string.basicTypes))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {

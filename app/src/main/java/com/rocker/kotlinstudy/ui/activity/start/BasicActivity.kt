@@ -4,7 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.ui.BaseLoadActivity
-import com.rocker.kotlinstudy.databinding.ActivityListBinding
+import com.rocker.kotlinstudy.databinding.LayoutListBinding
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.util.ToastUtil
 import kotlin.properties.Delegates
@@ -12,18 +12,22 @@ import kotlin.properties.Delegates
 /**
  * 基本语法
  */
-class BasicActivity : BaseLoadActivity<ActivityListBinding>() {
+class BasicActivity : BaseLoadActivity<LayoutListBinding>() {
 
     override fun initLoadLayout(): Int {
-        return R.layout.activity_list
+        return R.layout.layout_list
     }
 
-    override fun initLoadBinding(inflate: View): ActivityListBinding {
-        return ActivityListBinding.bind(inflate)
+    override fun initLoadBinding(inflate: View): LayoutListBinding {
+        return LayoutListBinding.bind(inflate)
+    }
+
+    override fun initView() {
+        super.initView()
+        rootBinding.tvTitle.text = getString(R.string.basicSyntax)
     }
 
     override fun initLoad() {
-        loadBinding.tvTitle.text = getString(R.string.basicSyntax)
         loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
         val adapter = ContentLayoutAdapter(this)
         val data = ArrayList<ContentLayoutAdapter.LayType>()
