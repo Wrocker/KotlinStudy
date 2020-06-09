@@ -22,6 +22,7 @@
         <activity android:name=".ui.activity.start.IdiomsActivity" />
 
         <activity android:name=".ui.activity.basic.BasicTypesActivity" />
+        <activity android:name=".ui.activity.basic.PackageImportActivity" />
     </application>
 
 </manifest>

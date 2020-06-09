@@ -8,4 +8,5 @@
     <string name="idioms">习惯用法</string>
 
     <string name="basicTypes">基本类型</string>
+    <string name="packageImport">包和导入</string>
 </resources>

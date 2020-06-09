@@ -8,6 +8,7 @@ import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.databinding.ActivityMainBinding
 import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
+import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
@@ -30,6 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.basicSyntax))
         data.add(getString(R.string.idioms))
         data.add(getString(R.string.basicTypes))
+        data.add(getString(R.string.packageImport))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -42,6 +44,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     2 -> {
                         startActivity(Intent(this@MainActivity, BasicTypesActivity::class.java))
+                    }
+                    3 -> {
+                        startActivity(Intent(this@MainActivity, PackageImportActivity::class.java))
                     }
                 }
             }
