@@ -65,6 +65,8 @@ class PackageImportActivity : BaseLoadActivity<LayoutListBinding>() {
         data.add(ContentLayoutAdapter.LayType("♦    顶层声明的可见性"))
         data.add(ContentLayoutAdapter.LayType("         如果顶层声明是 private 的，它是声明它的文件所私有的"))
 
+        adapter.data = data
+        loadBinding.rvContent.adapter = adapter
 
     }
 }

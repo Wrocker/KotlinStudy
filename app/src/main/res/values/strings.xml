@@ -9,4 +9,5 @@
 
     <string name="basicTypes">基本类型</string>
     <string name="packageImport">包和导入</string>
+    <string name="controlFlow">控制流</string>
 </resources>

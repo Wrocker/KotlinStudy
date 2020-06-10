@@ -23,6 +23,7 @@
 
         <activity android:name=".ui.activity.basic.BasicTypesActivity" />
         <activity android:name=".ui.activity.basic.PackageImportActivity" />
+        <activity android:name=".ui.activity.basic.ControlFlowActivity" />
     </application>
 
 </manifest>
