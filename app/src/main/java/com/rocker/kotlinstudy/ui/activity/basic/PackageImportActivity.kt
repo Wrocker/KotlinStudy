@@ -1,28 +1,18 @@
 package com.rocker.kotlinstudy.ui.activity.basic
 
-import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
-import com.rocker.kotlinstudy.base.ui.BaseLoadActivity
-import com.rocker.kotlinstudy.databinding.LayoutListBinding
+import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 
 /**
  * 包和导入
  */
-class PackageImportActivity : BaseLoadActivity<LayoutListBinding>() {
-    override fun initLoadLayout(): Int {
-        return R.layout.layout_list
+class PackageImportActivity : BaseLoadListActivity() {
+    override fun initTitle(): Int {
+        return R.string.packageImport
     }
 
-    override fun initLoadBinding(inflate: View): LayoutListBinding {
-        return LayoutListBinding.bind(inflate)
-    }
-
-    override fun initView() {
-        super.initView()
-        rootBinding.tvTitle.text = getString(R.string.packageImport)
-    }
 
     override fun initLoad() {
         loadBinding.rvContent.layoutManager = LinearLayoutManager(this)

@@ -1,14 +1,12 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
 import android.os.Build
-import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.rocker.kotlinstudy.R
-import com.rocker.kotlinstudy.base.ui.BaseLoadActivity
-import com.rocker.kotlinstudy.databinding.LayoutListBinding
+import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
 import java.math.BigDecimal
@@ -20,19 +18,9 @@ import kotlin.math.PI
 /**
  * 常用方法
  */
-class IdiomsActivity : BaseLoadActivity<LayoutListBinding>() {
-
-    override fun initLoadLayout(): Int {
-        return R.layout.layout_list
-    }
-
-    override fun initLoadBinding(inflate: View): LayoutListBinding {
-        return LayoutListBinding.bind(inflate)
-    }
-
-    override fun initView() {
-        super.initView()
-        rootBinding.tvTitle.text = getString(R.string.idioms)
+class IdiomsActivity : BaseLoadListActivity() {
+    override fun initTitle(): Int {
+        return R.string.idioms
     }
 
     override fun initLoad() {
