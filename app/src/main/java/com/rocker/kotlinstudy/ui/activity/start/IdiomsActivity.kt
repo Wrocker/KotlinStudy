@@ -2,7 +2,6 @@ package com.rocker.kotlinstudy.ui.activity.start
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.rocker.kotlinstudy.R
@@ -23,9 +22,7 @@ class IdiomsActivity : BaseLoadListActivity() {
         return R.string.idioms
     }
 
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
+    override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦️ 创建 DTOs（POJOs/POCOs）"))
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_import))
@@ -33,7 +30,7 @@ class IdiomsActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_main))
         data.add(ContentLayoutAdapter.LayType("♦️ 方法"))
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     //创建 DTOs（POJOs/POCOs） 理解为bean类

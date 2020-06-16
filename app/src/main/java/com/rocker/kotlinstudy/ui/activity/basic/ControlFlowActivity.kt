@@ -1,6 +1,5 @@
 package com.rocker.kotlinstudy.ui.activity.basic
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
@@ -14,9 +13,7 @@ class ControlFlowActivity: BaseLoadListActivity() {
         return R.string.controlFlow
     }
 
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
+    override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦    if表达式"))
         data.add(ContentLayoutAdapter.LayType("     if为表达式，因此可以代替三元运算符，直接返回数值"))
@@ -28,7 +25,7 @@ class ControlFlowActivity: BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("♦    while表达式"))
 
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     fun whileSimple(temp: Any){

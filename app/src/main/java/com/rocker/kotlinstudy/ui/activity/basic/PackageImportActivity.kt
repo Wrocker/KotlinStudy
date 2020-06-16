@@ -1,6 +1,5 @@
 package com.rocker.kotlinstudy.ui.activity.basic
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
@@ -13,11 +12,7 @@ class PackageImportActivity : BaseLoadListActivity() {
         return R.string.packageImport
     }
 
-
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
-        val data = ArrayList<ContentLayoutAdapter.LayType>()
+    override fun initContent() {val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦    包"))
         data.add(ContentLayoutAdapter.LayType("     源文件通常以包声明开头:表明该文件的位置"))
         data.add(ContentLayoutAdapter.LayType("     若未指明包，则该文件内容属于无名字的默认包名"))
@@ -56,7 +51,6 @@ class PackageImportActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("         如果顶层声明是 private 的，它是声明它的文件所私有的"))
 
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
-
+        adapter.notifyDataSetChanged()
     }
 }

@@ -1,6 +1,5 @@
 package com.rocker.kotlinstudy.ui.activity.basic
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
@@ -13,9 +12,7 @@ class ReturnAndJumpActivity: BaseLoadListActivity() {
         return R.string.returnAndJump
     }
 
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
+    override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦    有三种结构化跳转表达式"))
         data.add(ContentLayoutAdapter.LayType("     return 默认从最直接包围它的函数或者匿名函数返回。"))
@@ -23,7 +20,7 @@ class ReturnAndJumpActivity: BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("     continue 继续下一次最直接包围它的循环。"))
 
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
+        adapter.notifyDataSetChanged()
 
         returnSimple()
         returnSimple2()

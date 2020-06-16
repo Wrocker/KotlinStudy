@@ -1,6 +1,5 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
@@ -16,9 +15,7 @@ class BasicActivity : BaseLoadListActivity() {
         return R.string.basicSyntax
     }
 
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
+    override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦️ kotlin 导包同java"))
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_import))
@@ -26,7 +23,7 @@ class BasicActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_main))
         data.add(ContentLayoutAdapter.LayType("♦️ 方法"))
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     /**

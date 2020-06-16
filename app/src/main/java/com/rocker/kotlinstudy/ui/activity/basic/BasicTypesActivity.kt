@@ -1,6 +1,5 @@
 package com.rocker.kotlinstudy.ui.activity.basic
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
@@ -13,9 +12,7 @@ class BasicTypesActivity : BaseLoadListActivity() {
         return R.string.basicTypes
     }
 
-    override fun initLoad() {
-        loadBinding.rvContent.layoutManager = LinearLayoutManager(this)
-        val adapter = ContentLayoutAdapter(this)
+    override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
         data.add(ContentLayoutAdapter.LayType("♦️Kotlin提供4种整数类型"))
         data.add(ContentLayoutAdapter.LayType("     类型   大小   最小值     最大值 "))
@@ -33,7 +30,8 @@ class BasicTypesActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType(R.drawable.ic_basic_import))
 
         adapter.data = data
-        loadBinding.rvContent.adapter = adapter
+        adapter.notifyDataSetChanged()
+
 
 //        noConvertExample(int) //不能进行隐式类型转换
         boxSimple()

@@ -11,6 +11,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
+import com.rocker.kotlinstudy.ui.activity.objects.ClassesAndInheritanceActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
@@ -36,6 +37,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.packageImport))
         data.add(getString(R.string.controlFlow))
         data.add(getString(R.string.returnAndJump))
+        data.add(getString(R.string.classesAndInheritance))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -57,6 +59,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     5 -> {
                         startActivity(Intent(this@MainActivity, ReturnAndJumpActivity::class.java))
+                    }
+                    6 -> {
+                        startActivity(Intent(this@MainActivity, ClassesAndInheritanceActivity::class.java))
                     }
                 }
             }
