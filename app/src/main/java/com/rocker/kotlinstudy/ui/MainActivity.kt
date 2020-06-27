@@ -12,6 +12,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.objects.ClassesAndInheritanceActivity
+import com.rocker.kotlinstudy.ui.activity.objects.PropertiesAndFieldsActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
@@ -62,6 +63,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     6 -> {
                         startActivity(Intent(this@MainActivity, ClassesAndInheritanceActivity::class.java))
+                    }
+                    7 -> {
+                        startActivity(Intent(this@MainActivity, PropertiesAndFieldsActivity::class.java))
                     }
                 }
             }

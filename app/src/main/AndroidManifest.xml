@@ -26,6 +26,7 @@
         <activity android:name=".ui.activity.basic.ControlFlowActivity" />
         <activity android:name=".ui.activity.basic.ReturnAndJumpActivity" />
         <activity android:name=".ui.activity.objects.ClassesAndInheritanceActivity" />
+        <activity android:name=".ui.activity.objects.PropertiesAndFieldsActivity" />
 
     </application>
 

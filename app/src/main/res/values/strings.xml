@@ -13,4 +13,5 @@
     <string name="returnAndJump">返回和跳转</string>
 
     <string name="classesAndInheritance">类与继承</string>
+    <string name="propertiesAndFields">属性和字段</string>
 </resources>
