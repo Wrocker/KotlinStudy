@@ -14,4 +14,5 @@
 
     <string name="classesAndInheritance">类与继承</string>
     <string name="propertiesAndFields">属性和字段</string>
+    <string name="interfaces">接口</string>
 </resources>

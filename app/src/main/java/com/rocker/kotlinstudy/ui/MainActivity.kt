@@ -12,6 +12,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.objects.ClassesAndInheritanceActivity
+import com.rocker.kotlinstudy.ui.activity.objects.InterfacesActivity
 import com.rocker.kotlinstudy.ui.activity.objects.PropertiesAndFieldsActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
@@ -66,6 +67,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     7 -> {
                         startActivity(Intent(this@MainActivity, PropertiesAndFieldsActivity::class.java))
+                    }
+                    8 -> {
+                        startActivity(Intent(this@MainActivity, InterfacesActivity::class.java))
                     }
                 }
             }
