@@ -14,6 +14,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.objects.ClassesAndInheritanceActivity
 import com.rocker.kotlinstudy.ui.activity.objects.InterfacesActivity
 import com.rocker.kotlinstudy.ui.activity.objects.PropertiesAndFieldsActivity
+import com.rocker.kotlinstudy.ui.activity.objects.VisibilityModifiersActivity
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
 import com.rocker.kotlinstudy.ui.adapter.OptionItemAdapter
@@ -40,6 +41,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.controlFlow))
         data.add(getString(R.string.returnAndJump))
         data.add(getString(R.string.classesAndInheritance))
+        data.add(getString(R.string.propertiesAndFields))
+        data.add(getString(R.string.interfaces))
+        data.add(getString(R.string.visibilityModifiers))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -70,6 +74,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     8 -> {
                         startActivity(Intent(this@MainActivity, InterfacesActivity::class.java))
+                    }
+                    9 -> {
+                        startActivity(Intent(this@MainActivity, VisibilityModifiersActivity::class.java))
                     }
                 }
             }
