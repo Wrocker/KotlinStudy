@@ -16,4 +16,5 @@
     <string name="propertiesAndFields">属性和字段</string>
     <string name="interfaces">接口</string>
     <string name="visibilityModifiers">可见性修饰符</string>
+    <string name="extensions">扩展</string>
 </resources>
