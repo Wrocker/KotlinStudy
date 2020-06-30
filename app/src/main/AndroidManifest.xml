@@ -32,6 +32,7 @@
         <activity android:name=".ui.activity.objects.VisibilityModifiersActivity" />
         <activity android:name=".ui.activity.objects.ExtensionsActivity" />
         <activity android:name=".ui.activity.objects.DataClassesActivity" />
+        <activity android:name=".ui.activity.objects.SealedClassesActivity" />
 
     </application>
 

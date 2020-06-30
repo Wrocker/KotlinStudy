@@ -83,6 +83,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     11 -> {
                         startActivity(Intent(this@MainActivity, DataClassesActivity::class.java))
                     }
+                    12 -> {
+                        startActivity(Intent(this@MainActivity, SealedClassesActivity::class.java))
+                    }
                 }
             }
         }

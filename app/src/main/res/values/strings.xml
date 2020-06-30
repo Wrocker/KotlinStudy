@@ -18,4 +18,5 @@
     <string name="visibilityModifiers">可见性修饰符</string>
     <string name="extensions">扩展</string>
     <string name="dataClasses">数据类</string>
+    <string name="sealedClasses">密封类</string>
 </resources>
