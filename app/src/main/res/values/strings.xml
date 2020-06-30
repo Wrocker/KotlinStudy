@@ -19,4 +19,6 @@
     <string name="extensions">扩展</string>
     <string name="dataClasses">数据类</string>
     <string name="sealedClasses">密封类</string>
+    <string name="generics">泛型</string>
+    <string name="nestedAndInnerClasses">嵌套类和内部类</string>
 </resources>
