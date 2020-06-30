@@ -42,6 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.interfaces))
         data.add(getString(R.string.visibilityModifiers))
         data.add(getString(R.string.extensions))
+        data.add(getString(R.string.dataClasses))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -78,6 +79,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     10 -> {
                         startActivity(Intent(this@MainActivity, ExtensionsActivity::class.java))
+                    }
+                    11 -> {
+                        startActivity(Intent(this@MainActivity, DataClassesActivity::class.java))
                     }
                 }
             }

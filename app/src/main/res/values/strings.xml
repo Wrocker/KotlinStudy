@@ -17,4 +17,5 @@
     <string name="interfaces">接口</string>
     <string name="visibilityModifiers">可见性修饰符</string>
     <string name="extensions">扩展</string>
+    <string name="dataClasses">数据类</string>
 </resources>

@@ -31,6 +31,7 @@
         <activity android:name=".ui.activity.objects.InterfacesActivity" />
         <activity android:name=".ui.activity.objects.VisibilityModifiersActivity" />
         <activity android:name=".ui.activity.objects.ExtensionsActivity" />
+        <activity android:name=".ui.activity.objects.DataClassesActivity" />
 
     </application>
 
