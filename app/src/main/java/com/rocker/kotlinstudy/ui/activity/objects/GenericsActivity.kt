@@ -20,7 +20,7 @@ class GenericsActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("♦️  型变"))
         data.add(ContentLayoutAdapter.LayType("     一个类或者对象可以实现一个或多个接口。"))
 
-        //todo java通配符类型参数 ? extends E
+        //out相当于 java通配符类型参数 ? extends E
         data.add(ContentLayoutAdapter.LayType("♦️  声明处型变（declaration-site variance"))
         data.add(ContentLayoutAdapter.LayType("     接口中不存在任何以 T 作为参数的方法，只是方法返回 T 类型值，用out进行修饰"))
         data.add(ContentLayoutAdapter.LayType("     out修饰符称为型变注解，并且由于它在类型参数声明处提供，所以我们称之为声明处型变。 "))
@@ -45,7 +45,6 @@ class GenericsActivity : BaseLoadListActivity() {
         //如果类型参数可以推断出来，例如从构造函数的参数或者从其他途径，允许省略类型参数
         val box1 = Box(2)
 
-        //todo 还是没理解
         val ints: Array<Int> = arrayOf(1, 2, 3)
         val anys = Array<Any>(3) { 3; 4 }
 //        copy(ints, any)//报错，copy时，Any和Int是不型变的
