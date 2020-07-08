@@ -8,7 +8,7 @@ import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 
 /**
- * 嵌套类和内部类
+ * 泛型
  */
 class GenericsActivity : BaseLoadListActivity() {
     override fun initTitle(): Int {

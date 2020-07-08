@@ -43,8 +43,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.visibilityModifiers))
         data.add(getString(R.string.extensions))
         data.add(getString(R.string.dataClasses))
+        data.add(getString(R.string.sealedClasses))
         data.add(getString(R.string.generics))
         data.add(getString(R.string.nestedAndInnerClasses))
+        data.add(getString(R.string.enumClasses))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -88,11 +90,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     12 -> {
                         startActivity(Intent(this@MainActivity, SealedClassesActivity::class.java))
                     }
-                    12 -> {
+                    13 -> {
                         startActivity(Intent(this@MainActivity, GenericsActivity::class.java))
                     }
-                    13 -> {
+                    14 -> {
                         startActivity(Intent(this@MainActivity, NestedAndInnerClassesActivity::class.java))
+                    }
+                    15 -> {
+                        startActivity(Intent(this@MainActivity, EnumClassesActivity::class.java))
                     }
                 }
             }
