@@ -47,6 +47,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.generics))
         data.add(getString(R.string.nestedAndInnerClasses))
         data.add(getString(R.string.enumClasses))
+        data.add(getString(R.string.objects))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -98,6 +99,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     15 -> {
                         startActivity(Intent(this@MainActivity, EnumClassesActivity::class.java))
+                    }
+                    16 -> {
+                        startActivity(Intent(this@MainActivity, ObjectsActivity::class.java))
                     }
                 }
             }

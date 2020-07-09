@@ -36,6 +36,7 @@
         <activity android:name=".ui.activity.objects.GenericsActivity" />
         <activity android:name=".ui.activity.objects.NestedAndInnerClassesActivity" />
         <activity android:name=".ui.activity.objects.EnumClassesActivity" />
+        <activity android:name=".ui.activity.objects.ObjectsActivity" />
 
     </application>
 

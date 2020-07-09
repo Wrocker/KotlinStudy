@@ -22,4 +22,5 @@
     <string name="generics">泛型</string>
     <string name="nestedAndInnerClasses">嵌套类和内部类</string>
     <string name="enumClasses">枚举类</string>
+    <string name="objects">对象</string>
 </resources>
