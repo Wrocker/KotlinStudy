@@ -24,4 +24,6 @@
     <string name="enumClasses">枚举类</string>
     <string name="objects">对象</string>
     <string name="typeAliases">类型别名</string>
+    <string name="inlineClasses">内联类</string>
+    <string name="delegation">委托</string>
 </resources>

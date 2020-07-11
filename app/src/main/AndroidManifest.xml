@@ -39,6 +39,8 @@
         <activity android:name=".ui.activity.objects.ObjectsActivity" />
         <activity android:name=".ui.activity.objects.TypeAliasesActivity" />
 
+        <activity android:name=".ui.activity.objects.DelegationActivity" />
+
     </application>
 
 </manifest>

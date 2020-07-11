@@ -49,6 +49,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.enumClasses))
         data.add(getString(R.string.objects))
         data.add(getString(R.string.typeAliases))
+        data.add(getString(R.string.inlineClasses))
+        data.add(getString(R.string.delegation))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -106,6 +108,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     17 -> {
                         startActivity(Intent(this@MainActivity, TypeAliasesActivity::class.java))
+                    }
+                    18 -> {
+                        startActivity(Intent(this@MainActivity, TypeAliasesActivity::class.java))
+                    }
+                    19 -> {
+                        startActivity(Intent(this@MainActivity, DelegationActivity::class.java))
                     }
                 }
             }
