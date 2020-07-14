@@ -110,7 +110,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         startActivity(Intent(this@MainActivity, TypeAliasesActivity::class.java))
                     }
                     18 -> {
-                        startActivity(Intent(this@MainActivity, TypeAliasesActivity::class.java))
+                        startActivity(Intent(this@MainActivity, InlineClassesActivity::class.java))
                     }
                     19 -> {
                         startActivity(Intent(this@MainActivity, DelegationActivity::class.java))

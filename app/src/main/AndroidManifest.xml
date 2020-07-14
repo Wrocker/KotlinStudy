@@ -38,7 +38,7 @@
         <activity android:name=".ui.activity.objects.EnumClassesActivity" />
         <activity android:name=".ui.activity.objects.ObjectsActivity" />
         <activity android:name=".ui.activity.objects.TypeAliasesActivity" />
-
+        <activity android:name=".ui.activity.objects.InlineClassesActivity" />
         <activity android:name=".ui.activity.objects.DelegationActivity" />
 
     </application>
