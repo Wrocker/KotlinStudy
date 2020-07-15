@@ -51,6 +51,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.typeAliases))
         data.add(getString(R.string.inlineClasses))
         data.add(getString(R.string.delegation))
+        data.add(getString(R.string.delegatedProperties))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -114,6 +115,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     19 -> {
                         startActivity(Intent(this@MainActivity, DelegationActivity::class.java))
+                    }
+                    20 -> {
+                        startActivity(Intent(this@MainActivity, DelegatedPropertiesActivity::class.java))
                     }
                 }
             }

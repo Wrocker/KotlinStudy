@@ -4,6 +4,9 @@ import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 
+/**
+ * 接口
+ */
 class InterfacesActivity : BaseLoadListActivity() {
     override fun initTitle(): Int {
         return R.string.interfaces
