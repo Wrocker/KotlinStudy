@@ -42,6 +42,8 @@
         <activity android:name=".ui.activity.objects.DelegationActivity" />
         <activity android:name=".ui.activity.objects.DelegatedPropertiesActivity" />
 
+        <activity android:name=".ui.activity.function.FunctionsActivity" />
+
     </application>
 
 </manifest>

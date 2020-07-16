@@ -27,4 +27,6 @@
     <string name="inlineClasses">内联类</string>
     <string name="delegation">委托</string>
     <string name="delegatedProperties">委托属性</string>
+
+    <string name="functions">函数</string>
 </resources>

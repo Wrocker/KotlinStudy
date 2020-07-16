@@ -11,6 +11,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
+import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.objects.*
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
@@ -33,10 +34,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val data = ArrayList<String>(3)
         data.add(getString(R.string.basicSyntax))
         data.add(getString(R.string.idioms))
+
         data.add(getString(R.string.basicTypes))
         data.add(getString(R.string.packageImport))
         data.add(getString(R.string.controlFlow))
         data.add(getString(R.string.returnAndJump))
+
         data.add(getString(R.string.classesAndInheritance))
         data.add(getString(R.string.propertiesAndFields))
         data.add(getString(R.string.interfaces))
@@ -52,6 +55,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.inlineClasses))
         data.add(getString(R.string.delegation))
         data.add(getString(R.string.delegatedProperties))
+
+        data.add(getString(R.string.functions))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -118,6 +123,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     20 -> {
                         startActivity(Intent(this@MainActivity, DelegatedPropertiesActivity::class.java))
+                    }
+                    21 -> {
+                        startActivity(Intent(this@MainActivity, FunctionsActivity::class.java))
                     }
                 }
             }
