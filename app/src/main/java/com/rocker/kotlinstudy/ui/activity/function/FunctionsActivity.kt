@@ -51,7 +51,23 @@ class FunctionsActivity : BaseLoadListActivity() {
 
         data.add(ContentLayoutAdapter.LayType("♦️  显式返回类型"))
         data.add(ContentLayoutAdapter.LayType("     具有块代码体的函数必须始终显式指定返回类型，除非他们旨在返回 Unit"))
+
         data.add(ContentLayoutAdapter.LayType("♦️  中缀表示法"))
+        data.add(ContentLayoutAdapter.LayType("     标有 infix 关键字的函数也可以使用中缀表示法（忽略该调用的点与圆括号）调用。"))
+        data.add(ContentLayoutAdapter.LayType("     - 必须是成员函数或扩展函数；"))
+        data.add(ContentLayoutAdapter.LayType("     - 必须只有一个参数；"))
+        data.add(ContentLayoutAdapter.LayType("     - 其参数不得接受可变数量的参数且不能有默认值。"))
+        data.add(ContentLayoutAdapter.LayType("     中缀函数调用的优先级低于算术操作符、类型转换以及 rangeTo 操作符。"))
+        data.add(ContentLayoutAdapter.LayType("     - 1 shl 2 + 3 等价于 1 shl (2 + 3)"))
+        data.add(ContentLayoutAdapter.LayType("     - 0 until n * 2 等价于 0 until (n * 2)"))
+        data.add(ContentLayoutAdapter.LayType("     - xs union ys as Set<*> 等价于 xs union (ys as Set<*>)"))
+        //优先级见https://www.kotlincn.net/docs/reference/grammar.html#expressions
+        data.add(ContentLayoutAdapter.LayType("     中缀函数调用的优先级高于布尔操作符 && 与 ||、is- 与 in- 检测以及其他一些操作符。"))
+        data.add(ContentLayoutAdapter.LayType("     - a && b xor c 等价于 a && (b xor c)"))
+        data.add(ContentLayoutAdapter.LayType("     - a xor b in c 等价于 (a xor b) in c"))
+        data.add(ContentLayoutAdapter.LayType("     中缀函数总是要求指定接收者与参数。当使用中缀表示法在当前接收者上调用方法时，需要显式使用 this；"))
+
+        data.add(ContentLayoutAdapter.LayType("♦️  函数作用域"))
 
         adapter.data = data
         adapter.notifyDataSetChanged()
@@ -67,9 +83,16 @@ class FunctionsActivity : BaseLoadListActivity() {
         copy("wakaka", from = "这里", to = "那里")//混用位置参数和具名参数
 //        copy(sth = "wakaka", "这里", "那里")//具名参数开始使用，后方的参数也必须使用
         printEveryThing(things = *arrayOf("1", "2", "3"))//可以通过使用星号操作符将可变数量参数（vararg） 以具名形式传入
+        //中缀
+        percent(0.6)
+        this percent 0.5//中缀函数总是要求指定接收者与参数。当使用中缀表示法在当前接收者上调用方法时，需要显式使用 this；
+        println(this percent 0.5)
     }
 
+    //中缀
+    infix fun percent(ratio: Double): String = "${ratio * 100}%"
 
+    //重载
     fun copy(sth: String? = "thing", from: String, to: String, len: Int = from.length){
         println("the length of $sth is len! copy $sth from $from to $to")
     }
