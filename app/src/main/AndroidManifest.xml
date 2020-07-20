@@ -43,6 +43,7 @@
         <activity android:name=".ui.activity.objects.DelegatedPropertiesActivity" />
 
         <activity android:name=".ui.activity.function.FunctionsActivity" />
+        <activity android:name=".ui.activity.function.LambdasActivity" />
 
     </application>
 

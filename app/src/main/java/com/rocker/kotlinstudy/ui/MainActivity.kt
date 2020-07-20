@@ -12,6 +12,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
+import com.rocker.kotlinstudy.ui.activity.function.LambdasActivity
 import com.rocker.kotlinstudy.ui.activity.objects.*
 import com.rocker.kotlinstudy.ui.activity.start.BasicActivity
 import com.rocker.kotlinstudy.ui.activity.start.IdiomsActivity
@@ -57,6 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.delegatedProperties))
 
         data.add(getString(R.string.functions))
+        data.add(getString(R.string.lambdas))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -126,6 +128,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     21 -> {
                         startActivity(Intent(this@MainActivity, FunctionsActivity::class.java))
+                    }
+                    22 -> {
+                        startActivity(Intent(this@MainActivity, LambdasActivity::class.java))
                     }
                 }
             }
