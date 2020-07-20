@@ -22,6 +22,7 @@ class FunctionsActivity : BaseLoadListActivity() {
 
         data.add(ContentLayoutAdapter.LayType("♦️  参数"))
         data.add(ContentLayoutAdapter.LayType("     函数参数使用 Pascal 表示法定义，即 name: type。参数用逗号隔开。每个参数必须有显式类型"))
+        data.add(ContentLayoutAdapter.LayType("     函数参数默认val修饰，不可修改"))
         data.add(ContentLayoutAdapter.LayType(" ♦️  默认参数"))
         data.add(ContentLayoutAdapter.LayType("     函数参数可以有默认值，当省略相应的参数时使用默认值。与其他语言相比，这可以减少重载数量"))
         data.add(ContentLayoutAdapter.LayType("     默认值通过类型后面的 = 及给出的值来定义。"))
@@ -68,6 +69,24 @@ class FunctionsActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("     中缀函数总是要求指定接收者与参数。当使用中缀表示法在当前接收者上调用方法时，需要显式使用 this；"))
 
         data.add(ContentLayoutAdapter.LayType("♦️  函数作用域"))
+        data.add(ContentLayoutAdapter.LayType("     在 Kotlin 中函数可以在文件顶层声明"))
+        data.add(ContentLayoutAdapter.LayType("     Kotlin 中函数也可以声明在局部作用域、作为成员函数以及扩展函数。"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  局部函数"))//编译为java后，发现是创建一个类，方法在类中，通过类调用
+        data.add(ContentLayoutAdapter.LayType("     Kotlin 支持局部函数，即一个函数在另一个函数内部"))
+        data.add(ContentLayoutAdapter.LayType("     局部函数可以访问外部函数（即闭包）的局部变量"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  成员函数"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  泛型函数"))
+        data.add(ContentLayoutAdapter.LayType("     函数可以有泛型参数，通过在函数名前使用尖括号指定"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  内联函数"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  扩展函数"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  高阶函数和 Lambda 表达式"))
+        data.add(ContentLayoutAdapter.LayType(" ♦️  尾递归函数"))
+        data.add(ContentLayoutAdapter.LayType("     一种称为尾递归的函数式编程风格。 这允许一些通常用循环写的算法改用递归函数来写，而无堆栈溢出的风险。"))
+        data.add(ContentLayoutAdapter.LayType("     当一个函数用 tailrec 修饰符标记并满足所需的形式时，编译器会优化该递归，留下一个快速而高效的基于循环的版本"))
+        data.add(ContentLayoutAdapter.LayType("     符合 tailrec 修饰符的条件"))
+        data.add(ContentLayoutAdapter.LayType("     - 函数必须将其自身调用作为它执行的最后一个操作"))
+        data.add(ContentLayoutAdapter.LayType("     - 在递归调用后有更多代码时，不能使用尾递归，并且不能用在 try/catch/finally 块中"))
+        data.add(ContentLayoutAdapter.LayType("     - 目前在 Kotlin for JVM 与 Kotlin/Native 中支持尾递归。"))
 
         adapter.data = data
         adapter.notifyDataSetChanged()
@@ -87,6 +106,38 @@ class FunctionsActivity : BaseLoadListActivity() {
         percent(0.6)
         this percent 0.5//中缀函数总是要求指定接收者与参数。当使用中缀表示法在当前接收者上调用方法时，需要显式使用 this；
         println(this percent 0.5)
+    }
+
+    //尾递归函数
+    tailrec fun countAdd(start: Int): Int = if((start + 1) > 10) (start + 1) else countAdd(start + 1)
+
+    //官方
+    val eps = 1E-10 // "good enough", could be 10^-15
+
+    tailrec fun findFixPoint(x: Double = 1.0): Double
+            = if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+    //以上代码写成循环
+    fun cycle2findFixPoint(): Double {
+        var x = 1.0
+        while (true) {
+            val y = Math.cos(x)
+            if (Math.abs(x - y) < eps) return x
+            x = Math.cos(x)
+        }
+    }
+
+    //泛型函数
+    fun <T> addToPrint(obj: T){
+        println("${obj.toString()} is added to print")
+    }
+
+    //局部函数
+    fun partFunction(){
+        val tool = "打印机"
+        fun printSth(sth: String){
+            println("$tool print $sth")//局部函数可以访问外部函数（即闭包）的局部变量
+        }
+        printSth("lalala")
     }
 
     //中缀
