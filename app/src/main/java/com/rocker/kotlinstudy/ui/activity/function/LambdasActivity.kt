@@ -27,8 +27,20 @@ class LambdasActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("     - 如需将函数类型指定为可空，请使用圆括号：((Int, Int) -> Int)?"))
         data.add(ContentLayoutAdapter.LayType("     - 函数类型可以使用圆括号进行接合：(Int) -> ((Int) -> Unit)"))
         data.add(ContentLayoutAdapter.LayType("     - 箭头表示法是右结合的，(Int) -> (Int) -> Unit 与前述示例等价，但不等于 ((Int) -> (Int)) -> Unit。"))
+        data.add(ContentLayoutAdapter.LayType("     可以通过使用类型别名给函数类型起一个别称"))
+        data.add(ContentLayoutAdapter.LayType("♦️  函数类型实例化"))
+        data.add(ContentLayoutAdapter.LayType("     有几种方法可以获得函数类型的实例"))
+        data.add(ContentLayoutAdapter.LayType("     - 使用函数字面值的代码块，采用以下形式之一"))
+        data.add(ContentLayoutAdapter.LayType("         _lambda 表达式: { a, b -> a + b }"))
+        data.add(ContentLayoutAdapter.LayType("         _匿名函数: fun(s: String): Int { return s.toIntOrNull() ?: 0 }"))
+        data.add(ContentLayoutAdapter.LayType("         _带有接收者的函数字面值可用作带有接收者的函数类型的值"))
+        data.add(ContentLayoutAdapter.LayType("     - 使用已有声明的可调用引用"))
+        data.add(ContentLayoutAdapter.LayType("         _顶层、局部、成员、扩展函数：::isOdd、 String::toInt"))
+        data.add(ContentLayoutAdapter.LayType("         _顶层、成员、扩展属性：List<Int>::size"))
+        data.add(ContentLayoutAdapter.LayType("         _构造函数：::Regex"))
+        data.add(ContentLayoutAdapter.LayType("         这包括指向特定实例成员的绑定的可调用引用：foo::toString"))
+        data.add(ContentLayoutAdapter.LayType("     - 使用实现函数类型接口的自定义类的实例"))
 
-        data.add(ContentLayoutAdapter.LayType("♦️  接口继承"))
         data.add(ContentLayoutAdapter.LayType("♦️  解决覆盖冲突"))
 
 
@@ -36,11 +48,19 @@ class LambdasActivity : BaseLoadListActivity() {
         adapter.notifyDataSetChanged()
         
         //右结合法 todo 例子
-
+//        doSth("右结合", {
+//            string
+//            -> println("打印$string")
+//            "$string 1"
+//            -> println("打印$string")
+//            "$string 2"
+//        })
 
         //高阶函数
         doSth("内容", {
-            string ->  println("打印$string")
+            string ->
+            println("打印$string")
+            "print $string"
         })
         //高阶函数 官方的例子
         val items = listOf(1, 2, 3, 4, 5)
@@ -61,8 +81,10 @@ class LambdasActivity : BaseLoadListActivity() {
     }
 
     //高阶函数
-    fun doSth(string: String, action: (string: String) -> Unit){
+    fun doSth(string: String, action: (string: String) -> String){
         action(string)
     }
-
 }
+
+//类型别名给表达式起别称
+typealias ClickHandler = (String, Int) -> Unit
