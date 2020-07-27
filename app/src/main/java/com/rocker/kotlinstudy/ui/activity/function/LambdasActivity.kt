@@ -65,12 +65,57 @@ class LambdasActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("♦️  从 lambda 表达式中返回一个值"))
         data.add(ContentLayoutAdapter.LayType("     我们可以使用限定的返回语法从 lambda 显式返回一个值。 否则，将隐式返回最后一个表达式的值。"))
         data.add(ContentLayoutAdapter.LayType("♦️  下划线用于未使用的变量（自 1.1 起）"))
-        //map.forEach { _, value -> println("$value!") }
+        data.add(ContentLayoutAdapter.LayType("     map.forEach { _, value -> println(value!) }"))
+        data.add(ContentLayoutAdapter.LayType("♦️  在 lambda 表达式中解构（自 1.1 起）"))//结构声明
 
+        data.add(ContentLayoutAdapter.LayType("♦️  匿名函数"))
+        data.add(ContentLayoutAdapter.LayType("     lambda 表达式语法缺少的一个东西是指定函数的返回类型的能力,在大多数情况下,返回类型可以自动推断出来"))
+        data.add(ContentLayoutAdapter.LayType("     如果确实需要显式指定，可以使用另一种语法： 匿名函数"))
+        data.add(ContentLayoutAdapter.LayType("     匿名函数参数总是在括号内传递。"))
+        data.add(ContentLayoutAdapter.LayType("     Lambda表达式与匿名函数之间的另一个区别是非局部返回的行为"))
 
-//
+        data.add(ContentLayoutAdapter.LayType("♦️  闭包"))
+        data.add(ContentLayoutAdapter.LayType("     Lambda 表达式或者匿名函数（以及局部函数和对象表达式） 可以访问其 闭包 ，即在外部作用域中声明的变量。"))
+        data.add(ContentLayoutAdapter.LayType("     在 lambda 表达式中可以修改闭包中捕获的变量"))
+
+        data.add(ContentLayoutAdapter.LayType("♦️  带有接收者的函数字面值"))
+        data.add(ContentLayoutAdapter.LayType("     带有接收者的函数类型，例如 A.(B) -> C，可以用特殊形式的函数字面值实例化—— 带有接收者的函数字面值。"))
+        data.add(ContentLayoutAdapter.LayType("     Kotlin 提供了调用带有接收者（提供接收者对象）的函数类型实例的能力。"))
+        //在这样的函数字面值内部，传给调用的接收者对象成为隐式的this，以便访问接收者对象的成员而无需任何额外的限定符，亦可使用 this 表达式 访问接收者对象。
+        //理解为A.(B) -> C中C可以调用A的其他方法
+        data.add(ContentLayoutAdapter.LayType("     当接收者类型可以从上下文推断时，lambda 表达式可以用作带接收者的函数字面值。"))
+
+        //
         adapter.data = data
         adapter.notifyDataSetChanged()
+
+        //调用方法内方法
+        val simpleSum: Int.(Int) -> Int = { other -> plus(other) }
+        //匿名函数语法允许你直接指定函数字面值的接收者类型。 如果你需要使用带接收者的函数类型声明一个变量，并在之后使用它，这将非常有用。
+        val simpleSum2 = fun Int.(other: Int): Int = this + other
+        //当接收者类型可以从上下文推断时，lambda 表达式可以用作带接收者的函数字面值。
+//        class HTML {  todo 没懂
+//            fun body() { …… }
+//        }
+//
+//        fun html(init: HTML.() -> Unit): HTML {
+//            val html = HTML()  // 创建接收者对象
+//            html.init()        // 将该接收者对象传给该 lambda
+//            return html
+//        }
+//
+//        html {       // 带接收者的 lambda 由此开始
+//            body()   // 调用该接收者对象的一个方法
+//        }
+
+
+        //匿名函数
+        doSth("匿名函数", fun(string): String {
+            println("打印$string")
+            return "print $string"
+        })
+        //参数和返回类型的指定方式与常规函数相同，除了能够从上下文推断出的参数类型可以省略
+        //ints.filter(fun(item) = item > 0)
 
         //拖尾 lambda 表达式
         doSth("haha"){
@@ -141,6 +186,13 @@ class LambdasActivity : BaseLoadListActivity() {
         }
         //可以使用限定的返回语法从 lambda 显式返回一个值。这一约定连同在圆括号外传递 lambda 表达式一起支持 LINQ-风格 的代码
         items.filter { it > 0 }.sortedBy { it }.map { it.plus(2) }
+
+        //在 lambda 表达式中可以修改闭包中捕获的变量
+        var sum = 0
+        items.filter { it > 0 }.forEach {
+            sum += it
+        }
+        print(sum)
     }
 
     //带与不带接收者的函数类型非字面值可以互换，其中接收者可以替代第一个参数，反之亦然。todo 没懂
