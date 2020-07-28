@@ -44,6 +44,7 @@
 
         <activity android:name=".ui.activity.function.FunctionsActivity" />
         <activity android:name=".ui.activity.function.LambdasActivity" />
+        <activity android:name=".ui.activity.function.InlineFunctionsActivity" />
 
     </application>
 

@@ -30,4 +30,5 @@
 
     <string name="functions">函数</string>
     <string name="lambdas">Lambda表达式</string>
+    <string name="inlineFunctions">内联函数</string>
 </resources>
