@@ -1,6 +1,7 @@
 package com.rocker.kotlinstudy.ui.activity.function
 
 import com.rocker.kotlinstudy.R
+import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 
@@ -28,15 +29,46 @@ class InlineFunctionsActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("     如果 lambda 表达式传给的函数是内联的，该 return 也可以内联，所以它是允许的"))
         data.add(ContentLayoutAdapter.LayType("     这种返回（位于 lambda 表达式中，但退出包含它的函数）称为非局部返回"))
         data.add(ContentLayoutAdapter.LayType("     一些内联函数可能调用传给它们的不是直接来自函数体、而是来自另一个执行上下文的 lambda 表达式参数，例如来自局部对象或嵌套函数。在这种情况下，该 lambda 表达式中也不允许非局部控制流。为了标识这种情况，该 lambda 表达式参数需要用 crossinline 修饰符标记"))
-        data.add(ContentLayoutAdapter.LayType("     break 和 continue 在内联的 lambda 表达式中还不可用，但我们也计划支持它们。"))
+        data.add(ContentLayoutAdapter.LayType("     参数传给我们的一个类型"))
         data.add(ContentLayoutAdapter.LayType("♦️  具体化的类型参数"))
+        data.add(ContentLayoutAdapter.LayType("     当方法传递的参数是一个类型时"))
+        data.add(ContentLayoutAdapter.LayType("     普通的函数（未标记为内联函数的）不能有具体化参数。 不具有运行时表示的类型（例如非具体化的类型参数或者类似于Nothing的虚构类型） 不能用作具体化的类型参数的实参。"))
         data.add(ContentLayoutAdapter.LayType("♦️  内联属性（自 1.1 起）"))
+        data.add(ContentLayoutAdapter.LayType("     inline 修饰符可用于没有幕后字段的属性的访问器"))
+        data.add(ContentLayoutAdapter.LayType("     标注独立的属性访问器:inline get() = ... / inline set(v){}"))
+        data.add(ContentLayoutAdapter.LayType("     标注整个属性:inline var bar: Bar"))
+
         data.add(ContentLayoutAdapter.LayType("♦️  公有 API 内联函数的限制"))
+        data.add(ContentLayoutAdapter.LayType("     公有 API 内联函数体内不允许使用非公有声明，即，不允许使用 private 与 internal 声明以及其部件"))
+        data.add(ContentLayoutAdapter.LayType("     一个 internal 声明可以由 @PublishedApi 标注，这会允许它在公有 API 内联函数中使用"))
+        data.add(ContentLayoutAdapter.LayType("     当一个 internal 内联函数标记有 @PublishedApi 时，也会像公有函数一样检测其函数体"))
 
 
         adapter.data = data
         adapter.notifyDataSetChanged()
+
+        findParentOfType(BaseActivity::class.java)
+        findParentOfType<BaseLoadListActivity>()
     }
+
+    //该方法参数是一个类型
+    fun <T> findParentOfType(clazz: Class<T>): T? {
+        var p = parent
+        while (p != null && !clazz.isInstance(p)) {
+            p = p.parent
+        }
+        @Suppress("UNCHECKED_CAST")
+        return p as T?
+    }
+    //内联函数支持具体化的类型参数
+    inline fun <reified T> findParentOfType(): T? {
+        var p = parent
+        while (p != null && p !is T) {
+            p = p.parent
+        }
+        return p as T?
+    }
+
 
     //crossinline的使用
     inline fun f(crossinline body: () -> Unit) {
