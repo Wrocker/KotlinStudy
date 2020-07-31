@@ -12,6 +12,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.collections.CollectionsOverviewActivity
+import com.rocker.kotlinstudy.ui.activity.collections.ConstructingCollectionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.InlineFunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.LambdasActivity
@@ -64,6 +65,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.inlineFunctions))
 
         data.add(getString(R.string.collectionsOverview))
+        data.add(getString(R.string.constructingCollections))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -142,6 +144,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     24 -> {
                         startActivity(Intent(this@MainActivity, CollectionsOverviewActivity::class.java))
+                    }
+                    25 -> {
+                        startActivity(Intent(this@MainActivity, ConstructingCollectionsActivity::class.java))
                     }
                 }
             }
