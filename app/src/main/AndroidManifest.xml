@@ -48,6 +48,7 @@
 
         <activity android:name=".ui.activity.collections.CollectionsOverviewActivity" />
         <activity android:name=".ui.activity.collections.ConstructingCollectionsActivity" />
+        <activity android:name=".ui.activity.collections.IteratorsActivity" />
 
     </application>
 

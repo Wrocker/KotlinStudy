@@ -34,4 +34,5 @@
 
     <string name="collectionsOverview">集合概述</string>
     <string name="constructingCollections">构建集合</string>
+    <string name="iterators">迭代器</string>
 </resources>
