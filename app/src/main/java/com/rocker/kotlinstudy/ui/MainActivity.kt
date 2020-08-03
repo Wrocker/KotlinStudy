@@ -14,6 +14,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.collections.CollectionsOverviewActivity
 import com.rocker.kotlinstudy.ui.activity.collections.ConstructingCollectionsActivity
 import com.rocker.kotlinstudy.ui.activity.collections.IteratorsActivity
+import com.rocker.kotlinstudy.ui.activity.collections.RangesAndProgressionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.InlineFunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.LambdasActivity
@@ -68,6 +69,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.collectionsOverview))
         data.add(getString(R.string.constructingCollections))
         data.add(getString(R.string.iterators))
+        data.add(getString(R.string.rangesAndProgressions))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -152,6 +154,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     26 -> {
                         startActivity(Intent(this@MainActivity, IteratorsActivity::class.java))
+                    }
+                    27 -> {
+                        startActivity(Intent(this@MainActivity, RangesAndProgressionsActivity::class.java))
                     }
                 }
             }
