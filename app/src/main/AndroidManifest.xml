@@ -50,6 +50,7 @@
         <activity android:name=".ui.activity.collections.ConstructingCollectionsActivity" />
         <activity android:name=".ui.activity.collections.IteratorsActivity" />
         <activity android:name=".ui.activity.collections.RangesAndProgressionsActivity" />
+        <activity android:name=".ui.activity.collections.SequencesActivity" />
 
     </application>
 

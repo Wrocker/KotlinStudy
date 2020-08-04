@@ -73,10 +73,11 @@ class RangesAndProgressionsActivity : BaseLoadListActivity() {
         }
 
         println()
-//        //区间 todo 没懂
-//        val versionRange = Version(1, 11)..Version(1, 30)
-//        println(Version(0, 9) in versionRange)
-//        println(Version(1, 20) in versionRange)
+        //区间 类的话，需要实现Comparable<T>接口
+        val versionRange = Version(1, 11)..Version(1, 30)
+        println(Version(0, 9) in versionRange)
+        println(Version(1, 20) in versionRange)
+        println(Version(1, 40) in versionRange)
 
         println()
         //迭代数列隐式创建区间 此数列的 first 与 last 元素是区间的端点，step 为 1
@@ -86,5 +87,14 @@ class RangesAndProgressionsActivity : BaseLoadListActivity() {
         println((1..10).filter { it % 2 == 0 })
     }
 
-//    inner class Version(val build: Int, val version: Int)
+    inner class Version(val build: Int, val version: Int) : Comparable<Version> {
+        override fun compareTo(other: Version): Int {
+            return when{
+                build != other.build -> build - other.build
+                version != other.version -> version - other.version
+                else -> 0
+            }
+        }
+
+    }
 }

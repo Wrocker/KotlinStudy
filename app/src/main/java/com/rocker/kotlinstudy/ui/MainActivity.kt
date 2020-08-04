@@ -11,10 +11,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
-import com.rocker.kotlinstudy.ui.activity.collections.CollectionsOverviewActivity
-import com.rocker.kotlinstudy.ui.activity.collections.ConstructingCollectionsActivity
-import com.rocker.kotlinstudy.ui.activity.collections.IteratorsActivity
-import com.rocker.kotlinstudy.ui.activity.collections.RangesAndProgressionsActivity
+import com.rocker.kotlinstudy.ui.activity.collections.*
 import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.InlineFunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.LambdasActivity
@@ -70,6 +67,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.constructingCollections))
         data.add(getString(R.string.iterators))
         data.add(getString(R.string.rangesAndProgressions))
+        data.add(getString(R.string.sequences))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -157,6 +155,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     27 -> {
                         startActivity(Intent(this@MainActivity, RangesAndProgressionsActivity::class.java))
+                    }
+                    28 -> {
+                        startActivity(Intent(this@MainActivity, SequencesActivity::class.java))
                     }
                 }
             }
