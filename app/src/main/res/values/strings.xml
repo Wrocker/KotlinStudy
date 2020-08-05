@@ -37,4 +37,6 @@
     <string name="iterators">迭代器</string>
     <string name="rangesAndProgressions">区间和数列</string>
     <string name="sequences">序列</string>
+    <string name="operationsOverview">操作概述</string>
+    <string name="transformations">转换</string>
 </resources>

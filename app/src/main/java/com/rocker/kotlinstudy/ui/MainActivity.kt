@@ -68,6 +68,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.iterators))
         data.add(getString(R.string.rangesAndProgressions))
         data.add(getString(R.string.sequences))
+        data.add(getString(R.string.operationsOverview))
+        data.add(getString(R.string.transformations))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -158,6 +160,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     28 -> {
                         startActivity(Intent(this@MainActivity, SequencesActivity::class.java))
+                    }
+                    29 -> {
+                        startActivity(Intent(this@MainActivity, OperationsOverviewActivity::class.java))
+                    }
+                    30 -> {
+                        startActivity(Intent(this@MainActivity, TransformationsActivity::class.java))
                     }
                 }
             }

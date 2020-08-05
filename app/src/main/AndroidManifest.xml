@@ -51,6 +51,8 @@
         <activity android:name=".ui.activity.collections.IteratorsActivity" />
         <activity android:name=".ui.activity.collections.RangesAndProgressionsActivity" />
         <activity android:name=".ui.activity.collections.SequencesActivity" />
+        <activity android:name=".ui.activity.collections.OperationsOverviewActivity" />
+        <activity android:name=".ui.activity.collections.TransformationsActivity" />
 
     </application>
 
