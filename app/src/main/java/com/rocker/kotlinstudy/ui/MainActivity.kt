@@ -70,6 +70,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.sequences))
         data.add(getString(R.string.operationsOverview))
         data.add(getString(R.string.transformations))
+        data.add(getString(R.string.filtering))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -166,6 +167,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     30 -> {
                         startActivity(Intent(this@MainActivity, TransformationsActivity::class.java))
+                    }
+                    31 -> {
+                        startActivity(Intent(this@MainActivity, FilteringActivity::class.java))
                     }
                 }
             }
