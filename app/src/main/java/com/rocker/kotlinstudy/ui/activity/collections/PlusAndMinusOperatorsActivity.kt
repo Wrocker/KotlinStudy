@@ -42,7 +42,12 @@ class PlusAndMinusOperatorsActivity : BaseLoadListActivity() {
         println(minusList)
         println(minusSetList)
 
-        var muteNumbers = listOf("one", "two", "three", "four", "five", "five")
+        //可变变量
+        var varNumbers = listOf("one", "two", "three", "four", "five", "five")
+        varNumbers -= "five" //警告提示create new list under the hood
+        println(varNumbers)
+        //可变集合
+        val muteNumbers = mutableListOf("one", "two", "three", "four", "five", "five")
         muteNumbers -= "five"
         println(muteNumbers)
 

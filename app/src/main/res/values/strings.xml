@@ -41,4 +41,5 @@
     <string name="transformations">转换</string>
     <string name="filtering">过滤</string>
     <string name="plusAndMinusOperators">plus与minus操作符</string>
+    <string name="grouping">分组</string>
 </resources>
