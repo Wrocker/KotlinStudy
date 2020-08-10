@@ -40,4 +40,5 @@
     <string name="operationsOverview">操作概述</string>
     <string name="transformations">转换</string>
     <string name="filtering">过滤</string>
+    <string name="plusAndMinusOperators">plus与minus操作符</string>
 </resources>

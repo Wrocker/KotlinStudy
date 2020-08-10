@@ -71,6 +71,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.operationsOverview))
         data.add(getString(R.string.transformations))
         data.add(getString(R.string.filtering))
+        data.add(getString(R.string.plusAndMinusOperators))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -170,6 +171,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     31 -> {
                         startActivity(Intent(this@MainActivity, FilteringActivity::class.java))
+                    }
+                    32 -> {
+                        startActivity(Intent(this@MainActivity, PlusAndMinusOperatorsActivity::class.java))
                     }
                 }
             }
