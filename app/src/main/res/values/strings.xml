@@ -43,4 +43,5 @@
     <string name="plusAndMinusOperators">plus与minus操作符</string>
     <string name="grouping">分组</string>
     <string name="retrievingCollectionParts">取集合的一部分</string>
+    <string name="retrievingSingleElements">取单个元素</string>
 </resources>

@@ -57,6 +57,7 @@
         <activity android:name=".ui.activity.collections.PlusAndMinusOperatorsActivity" />
         <activity android:name=".ui.activity.collections.GroupingActivity" />
         <activity android:name=".ui.activity.collections.RetrievingCollectionPartsActivity" />
+        <activity android:name=".ui.activity.collections.RetrievingSingleElementsActivity" />
 
     </application>
 

@@ -74,6 +74,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.plusAndMinusOperators))
         data.add(getString(R.string.grouping))
         data.add(getString(R.string.retrievingCollectionParts))
+        data.add(getString(R.string.retrievingSingleElements))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -182,6 +183,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     34 -> {
                         startActivity(Intent(this@MainActivity, RetrievingCollectionPartsActivity::class.java))
+                    }
+                    35 -> {
+                        startActivity(Intent(this@MainActivity, RetrievingSingleElementsActivity::class.java))
                     }
                 }
             }
