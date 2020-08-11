@@ -73,6 +73,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.filtering))
         data.add(getString(R.string.plusAndMinusOperators))
         data.add(getString(R.string.grouping))
+        data.add(getString(R.string.retrievingCollectionParts))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -178,6 +179,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     33 -> {
                         startActivity(Intent(this@MainActivity, GroupingActivity::class.java))
+                    }
+                    34 -> {
+                        startActivity(Intent(this@MainActivity, RetrievingCollectionPartsActivity::class.java))
                     }
                 }
             }
