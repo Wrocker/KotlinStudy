@@ -75,6 +75,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.grouping))
         data.add(getString(R.string.retrievingCollectionParts))
         data.add(getString(R.string.retrievingSingleElements))
+        data.add(getString(R.string.ordering))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -186,6 +187,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     35 -> {
                         startActivity(Intent(this@MainActivity, RetrievingSingleElementsActivity::class.java))
+                    }
+                    36 -> {
+                        startActivity(Intent(this@MainActivity, OrderingActivity::class.java))
                     }
                 }
             }
