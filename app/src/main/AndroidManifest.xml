@@ -60,6 +60,7 @@
         <activity android:name=".ui.activity.collections.RetrievingSingleElementsActivity" />
         <activity android:name=".ui.activity.collections.OrderingActivity" />
         <activity android:name=".ui.activity.collections.AggregateOperationsActivity" />
+        <activity android:name=".ui.activity.collections.WriteOperationsActivity" />
 
     </application>
 

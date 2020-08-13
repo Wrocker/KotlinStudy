@@ -77,6 +77,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.retrievingSingleElements))
         data.add(getString(R.string.ordering))
         data.add(getString(R.string.aggregateOperations))
+        data.add(getString(R.string.writeOperations))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -194,6 +195,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     37 -> {
                         startActivity(Intent(this@MainActivity, AggregateOperationsActivity::class.java))
+                    }
+                    38 -> {
+                        startActivity(Intent(this@MainActivity, WriteOperationsActivity::class.java))
                     }
                 }
             }
