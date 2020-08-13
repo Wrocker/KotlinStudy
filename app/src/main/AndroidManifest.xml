@@ -59,6 +59,7 @@
         <activity android:name=".ui.activity.collections.RetrievingCollectionPartsActivity" />
         <activity android:name=".ui.activity.collections.RetrievingSingleElementsActivity" />
         <activity android:name=".ui.activity.collections.OrderingActivity" />
+        <activity android:name=".ui.activity.collections.AggregateOperationsActivity" />
 
     </application>
 
