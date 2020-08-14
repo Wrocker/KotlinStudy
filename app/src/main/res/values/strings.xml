@@ -47,4 +47,5 @@
     <string name="ordering">排序</string>
     <string name="aggregateOperations">聚合操作</string>
     <string name="writeOperations">写操作</string>
+    <string name="listSpecificOperations">List相关操作</string>
 </resources>

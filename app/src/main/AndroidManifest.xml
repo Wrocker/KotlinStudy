@@ -61,6 +61,7 @@
         <activity android:name=".ui.activity.collections.OrderingActivity" />
         <activity android:name=".ui.activity.collections.AggregateOperationsActivity" />
         <activity android:name=".ui.activity.collections.WriteOperationsActivity" />
+        <activity android:name=".ui.activity.collections.ListSpecificOperationsActivity" />
 
     </application>
 
