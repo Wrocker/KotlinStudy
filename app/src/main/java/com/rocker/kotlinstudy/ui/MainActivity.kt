@@ -80,6 +80,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.writeOperations))
         data.add(getString(R.string.listSpecificOperations))
         data.add(getString(R.string.setSpecificOperations))
+        data.add(getString(R.string.mapSpecificOperations))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -206,6 +207,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     40 -> {
                         startActivity(Intent(this@MainActivity, SetSpecificOperationsActivity::class.java))
+                    }
+                    41 -> {
+                        startActivity(Intent(this@MainActivity, MapSpecificOperationsActivity::class.java))
                     }
                 }
             }

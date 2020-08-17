@@ -63,6 +63,7 @@
         <activity android:name=".ui.activity.collections.WriteOperationsActivity" />
         <activity android:name=".ui.activity.collections.ListSpecificOperationsActivity" />
         <activity android:name=".ui.activity.collections.SetSpecificOperationsActivity" />
+        <activity android:name=".ui.activity.collections.MapSpecificOperationsActivity" />
 
     </application>
 
