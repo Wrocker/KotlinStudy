@@ -50,4 +50,6 @@
     <string name="listSpecificOperations">List相关操作</string>
     <string name="setSpecificOperations">Set相关操作</string>
     <string name="mapSpecificOperations">Map相关操作</string>
+
+    <string name="coroutinesBasics">协程基础</string>
 </resources>

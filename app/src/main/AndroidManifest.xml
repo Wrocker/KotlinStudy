@@ -65,6 +65,7 @@
         <activity android:name=".ui.activity.collections.SetSpecificOperationsActivity" />
         <activity android:name=".ui.activity.collections.MapSpecificOperationsActivity" />
 
+        <activity android:name=".ui.activity.coroutine.CoroutinesBasicsActivity" />
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
 import com.rocker.kotlinstudy.ui.activity.basic.PackageImportActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ReturnAndJumpActivity
 import com.rocker.kotlinstudy.ui.activity.collections.*
+import com.rocker.kotlinstudy.ui.activity.coroutine.CoroutinesBasicsActivity
 import com.rocker.kotlinstudy.ui.activity.function.FunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.InlineFunctionsActivity
 import com.rocker.kotlinstudy.ui.activity.function.LambdasActivity
@@ -81,6 +82,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         data.add(getString(R.string.listSpecificOperations))
         data.add(getString(R.string.setSpecificOperations))
         data.add(getString(R.string.mapSpecificOperations))
+
+        data.add(getString(R.string.coroutinesBasics))
         adapter.data = data
         adapter.onItemClickListener = object : BaseRecAdapter.OnItemClickListener{
             override fun onItemClick(view: View?) {
@@ -210,6 +213,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     }
                     41 -> {
                         startActivity(Intent(this@MainActivity, MapSpecificOperationsActivity::class.java))
+                    }
+                    42 -> {
+                        startActivity(Intent(this@MainActivity, CoroutinesBasicsActivity::class.java))
                     }
                 }
             }
