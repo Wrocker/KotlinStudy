@@ -53,14 +53,19 @@ class CoroutinesBasicsActivity : BaseLoadListActivity() {
         //delay不挂起，不让出处理器
         //第一个协程程序
         GlobalScope.launch { // 在后台启动一个新的协程并继续
-            delay(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒）
+            println("current Thread is ${Thread.currentThread().name}") //current Thread is DefaultDispatcher-worker-5
+            delay(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒） //非阻塞不占用线程
+            println("delay current Thread is ${Thread.currentThread().name}") //delay current Thread is DefaultDispatcher-worker-6
             println("World!") // 在延迟后打印输出
         }
+        println("main Thread is ${Thread.currentThread().name}") //main Thread is main
         println("Hello,") // 协程已在等待时主线程还在继续
 //        Thread.sleep(2000L) // 阻塞主线程 2 秒钟来保证 JVM 存活
         //Thread来写
         Thread { // 在后台启动一个新的协程并继续
+            println("1 current Thread is ${Thread.currentThread().name}") //1 current Thread is Thread-381
             Thread.sleep(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒）
+            println("sleep 1 current Thread is ${Thread.currentThread().name}") //sleep 1 current Thread is Thread-381
             println("World!") // 在延迟后打印输出
         }.start()
         println("Hello,") // 协程已在等待时主线程还在继续
@@ -68,7 +73,9 @@ class CoroutinesBasicsActivity : BaseLoadListActivity() {
 
         //代替Thread.sleep(2000L)
         runBlocking {     // 但是这个表达式阻塞了主线程
+            println("2 current Thread is ${Thread.currentThread().name}") //2 current Thread is main
             delay(2000L)  // ……我们延迟 2 秒来保证 JVM 的存活
+            println("delay 2 current Thread is ${Thread.currentThread().name}") //delay 2 current Thread is main
         }
     }
 }
