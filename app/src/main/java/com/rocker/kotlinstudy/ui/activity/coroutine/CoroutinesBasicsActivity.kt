@@ -18,14 +18,14 @@ class CoroutinesBasicsActivity : BaseLoadListActivity() {
 
     override fun initContent() {
         val data = ArrayList<ContentLayoutAdapter.LayType>()
-        data.add(ContentLayoutAdapter.LayType("♦️  简单协程程序"))
-        data.add(ContentLayoutAdapter.LayType("     GlobalScope 新协程的生命周期只受整个应用程序的生命周期限制"))
-        data.add(ContentLayoutAdapter.LayType("♦️  桥接阻塞与非阻塞的世界"))
-        data.add(ContentLayoutAdapter.LayType("     Iterable 集合的另一种方法是众所周知的 for 循环"))
-        data.add(ContentLayoutAdapter.LayType("     forEach() 函数，可自动迭代集合并为每个元素执行给定的代码"))
-        data.add(ContentLayoutAdapter.LayType("♦️  等待一个作业"))
-        data.add(ContentLayoutAdapter.LayType("     双向迭代：ListIterator "))
-        data.add(ContentLayoutAdapter.LayType("     具有双向迭代的能力意味着 ListIterator 在到达最后一个元素后仍可以使用。"))
+        data.add(ContentLayoutAdapter.LayType("♦️  GlobalScope.launch"))
+        data.add(ContentLayoutAdapter.LayType("     新协程的生命周期只受整个应用程序的生命周期限制"))
+        data.add(ContentLayoutAdapter.LayType("♦️  delay"))
+        data.add(ContentLayoutAdapter.LayType("     只能在协程中使用"))
+        data.add(ContentLayoutAdapter.LayType("     挂起函数,不会造成线程阻塞,但是会 挂起 协程"))
+        data.add(ContentLayoutAdapter.LayType("♦️  runBlocking<T>"))
+        data.add(ContentLayoutAdapter.LayType("     <T>表示协程返回的值"))
+        data.add(ContentLayoutAdapter.LayType("     T默认为Unit，Unit时可不写 "))
         data.add(ContentLayoutAdapter.LayType("♦️  结构化的并发"))
         data.add(ContentLayoutAdapter.LayType("      MutableIterator 来扩展 Iterator 使其具有元素删除函数 remove()"))
         data.add(ContentLayoutAdapter.LayType("      MutableListIterator 还可以在迭代列表时插入和替换元素。"))
@@ -72,10 +72,19 @@ class CoroutinesBasicsActivity : BaseLoadListActivity() {
 //        Thread.sleep(2000L) // 阻塞主线程 2 秒钟来保证 JVM 存活
 
         //代替Thread.sleep(2000L)
-        runBlocking {     // 但是这个表达式阻塞了主线程
+        runBlocking<Unit> {     // 但是这个表达式阻塞了主线程
             println("2 current Thread is ${Thread.currentThread().name}") //2 current Thread is main
             delay(2000L)  // ……我们延迟 2 秒来保证 JVM 的存活
             println("delay 2 current Thread is ${Thread.currentThread().name}") //delay 2 current Thread is main
         }
+
+        //runBlock协程返回String
+        println("look at me, say ${sayHi()}")
+    }
+
+    fun sayHi() = runBlocking<String> {
+        println("listen")
+        delay(2000)
+        "hi"
     }
 }
