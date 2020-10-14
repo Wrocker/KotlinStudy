@@ -10,8 +10,6 @@ class CusArrayList<E>() : CusAbstractList<E>() {
 
     val ELEMENT_EXPAND_RATE = 0.5
 
-    var size = 0
-
     var elements: Array<Any?>
 
     constructor(elementSize: Int) : this(){
@@ -21,19 +19,6 @@ class CusArrayList<E>() : CusAbstractList<E>() {
 
     init {
         elements = arrayOfNulls(elementSize)
-    }
-
-
-    override fun clear() {
-        size = 0
-    }
-
-    override fun size(): Int {
-        return size
-    }
-
-    override fun isEmpty(): Boolean {
-        return size == 0
     }
 
     override fun contains(element: E): Boolean {
@@ -100,16 +85,6 @@ class CusArrayList<E>() : CusAbstractList<E>() {
             val temp = arrayOfNulls<Any>((elementSize * ELEMENT_EXPAND_RATE).toInt())
             elements.mapIndexed { index, any -> temp[index] = any }
             elements = temp
-        }
-    }
-
-    fun outOfBounds(index: Int) {
-        throw IndexOutOfBoundsException("Index:$index, Size:$size");
-    }
-
-    fun rangeCheck(index: Int) {
-        if (index < 0 || index >= size) {
-            outOfBounds(index);
         }
     }
 }
