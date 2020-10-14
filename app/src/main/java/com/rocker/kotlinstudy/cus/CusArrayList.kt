@@ -21,7 +21,7 @@ class CusArrayList<E>() : CusAbstractList<E>() {
         elements = arrayOfNulls(elementSize)
     }
 
-    override fun contains(element: E): Boolean {
+    override fun contains(element: E?): Boolean {
         for(i in 0 until size){
             if(elements[i] == element)
                 return true
@@ -29,13 +29,13 @@ class CusArrayList<E>() : CusAbstractList<E>() {
         return false
     }
 
-    override fun add(element: E) {
+    override fun add(element: E?) {
         expandArray()
         elements[size] = element
         size ++
     }
 
-    override fun add(index: Int, element: E) {
+    override fun add(index: Int, element: E?) {
         rangeCheck(index)
         expandArray()
         for(i in size downTo index){
@@ -69,7 +69,7 @@ class CusArrayList<E>() : CusAbstractList<E>() {
         return last as E
     }
 
-    override fun indexOf(element: E): Int {
+    override fun indexOf(element: E?): Int {
         for(i in 0 until size){
             if(elements[i] == element)
                 return i

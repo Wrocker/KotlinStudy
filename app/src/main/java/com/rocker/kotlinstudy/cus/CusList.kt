@@ -27,20 +27,20 @@ interface CusList<E> {
      * @param element
      * @return
      */
-    fun contains(element: E): Boolean
+    fun contains(element: E?): Boolean
 
     /**
      * 添加元素到尾部
      * @param element
      */
-    fun add(element: E)
+    fun add(element: E?)
 
     /**
      * 获取index位置的元素
      * @param index
      * @return
      */
-    fun get(index: Int): E
+    fun get(index: Int): E?
 
     /**
      * 设置index位置的元素
@@ -48,26 +48,26 @@ interface CusList<E> {
      * @param element
      * @return 原来的元素ֵ
      */
-    fun set(index: Int,element: E): E
+    fun set(index: Int,element: E): E?
 
     /**
      * 在index位置插入一个元素
      * @param index
      * @param element
      */
-    fun add(index: Int,element: E)
+    fun add(index: Int,element: E?)
 
     /**
      * 删除index位置的元素
      * @param index
      * @return
      */
-    fun remove(index: Int): E
+    fun remove(index: Int): E?
 
     /**
      * 查看元素的索引
      * @param element 元素
      * @return 索引
      */
-    fun indexOf(element: E): Int
+    fun indexOf(element: E?): Int
 }
