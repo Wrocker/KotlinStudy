@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
+import com.rocker.kotlinstudy.cus.CusArrayList
+import com.rocker.kotlinstudy.cus.CusLinkedList
 import com.rocker.kotlinstudy.databinding.ActivityMainBinding
 import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
@@ -221,6 +223,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
         }
         rootBinding.rvList.adapter = adapter
+
+        val arrayList = CusArrayList<String>(5)
+        arrayList.add("first")
+        arrayList.add("second")
+        arrayList.add("third")
+        arrayList.add("fourth")
+        arrayList.add("fifth")
+        println("arrayList is $arrayList")
+
+        val linkedList = CusLinkedList<String>()
+        linkedList.add("first")
+        linkedList.add("second")
+        linkedList.add("third")
+        linkedList.add("fourth")
+        linkedList.add("fifth")
+        println("arrayList is $linkedList")
     }
 
 }

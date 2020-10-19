@@ -87,4 +87,12 @@ class CusArrayList<E>() : CusAbstractList<E>() {
             elements = temp
         }
     }
+
+    override fun toString(): String {
+        val temp = StringBuilder("array value is [ ")
+        for(i in 0 until size)
+            temp.append("${elements[i]}  ")
+        temp.append(" ]")
+        return temp.toString()
+    }
 }

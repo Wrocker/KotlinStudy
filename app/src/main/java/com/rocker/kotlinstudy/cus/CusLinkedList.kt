@@ -25,17 +25,21 @@ class CusLinkedList<E> : CusAbstractList<E>() {
     override fun add(element: E?) {
         if(size == 0){
             first = Node(element)
+            size ++
             return
         }
         var temp: Node<E>? = first
         for(i in 0 until size){
-            if(i == size - 1){
+            if(i == size - 1)
                 temp!!.next = Node(element)
-                break
-            } else
+            else
                 temp = temp!!.next
         }
         size ++
+        //0 first -> second
+        //1 second -> third
+        //2 third -> fourth
+        //3 fourth -> fifth
     }
 
     override fun get(index: Int): E? {
@@ -90,13 +94,13 @@ class CusLinkedList<E> : CusAbstractList<E>() {
             return temp!!.element
         }
         for(i in 0 until size){
-            if(i == index){
-                if(i == size - 1){
+            if(i == index - 1){
+                return if(i != size - 1){
                     temp!!.next = temp.next!!.next
-                    return temp.element
+                    temp.element
                 }else{
                     temp!!.next = null
-                    return temp.element
+                    temp.element
                 }
             } else
                 temp = temp!!.next
@@ -115,5 +119,14 @@ class CusLinkedList<E> : CusAbstractList<E>() {
         return ELEMENT_NOT_FOUND
     }
 
-
+    override fun toString(): String {
+        val value = StringBuilder("LinkedList value is [ ")
+        var temp = first
+        for(i in 0 until size){
+            value.append("${temp!!.element}  ")
+            temp = temp.next
+        }
+        value.append(" ]")
+        return value.toString()
+    }
 }
