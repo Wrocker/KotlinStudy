@@ -1,6 +1,8 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
 import com.rocker.kotlinstudy.R
+import com.rocker.kotlinstudy.cus.CusArrayList
+import com.rocker.kotlinstudy.cus.CusLinkedList
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.util.ToastUtil
@@ -24,6 +26,41 @@ class BasicActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("♦️ 方法"))
         adapter.data = data
         adapter.notifyDataSetChanged()
+
+        val arrayList = CusArrayList<String>(5)
+        arrayList.add("first")
+        arrayList.add("second")
+        arrayList.add("third")
+        arrayList.add("fourth")
+        arrayList.add("fifth")
+        println("arrayList is $arrayList")
+        arrayList.remove(2)
+        println("arrayList is $arrayList")
+        println("arrayList is ${arrayList.get(2)}")
+        println("arrayList is ${arrayList.contains("fifth")}")
+        arrayList.add(2, "thirds")
+        println("arrayList is $arrayList")
+        arrayList.set(2, "third")
+        println("arrayList is $arrayList")
+        println("arrayList is ${arrayList.indexOf("fifth")}")
+
+
+        val linkedList = CusLinkedList<String>()
+        linkedList.add("first")
+        linkedList.add("second")
+        linkedList.add("third")
+        linkedList.add("fourth")
+        linkedList.add("fifth")
+        println("linkedList is $linkedList")
+        linkedList.remove(2)
+        println("linkedList is $linkedList")
+        println("linkedList is ${linkedList.get(2)}")
+        println("linkedList is ${linkedList.contains("fifth")}")
+        linkedList.add(2, "thirds")
+        println("linkedList is $linkedList")
+        linkedList.set(2, "third")
+        println("linkedList is $linkedList")
+        println("linkedList is ${linkedList.indexOf("fifth")}")
     }
 
     /**
