@@ -5,6 +5,7 @@ import com.rocker.kotlinstudy.cus.CusArrayList
 import com.rocker.kotlinstudy.cus.CusLinkedList
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
+import com.rocker.kotlinstudy.util.LogUtil
 import com.rocker.kotlinstudy.util.ToastUtil
 import kotlin.properties.Delegates
 
@@ -33,16 +34,16 @@ class BasicActivity : BaseLoadListActivity() {
         arrayList.add("third")
         arrayList.add("fourth")
         arrayList.add("fifth")
-        println("arrayList is $arrayList")
+        LogUtil.e("arrayList is $arrayList")
         arrayList.remove(2)
-        println("arrayList is $arrayList")
-        println("arrayList is ${arrayList.get(2)}")
-        println("arrayList is ${arrayList.contains("fifth")}")
+        LogUtil.e("arrayList is $arrayList")
+        LogUtil.e("arrayList is ${arrayList.get(2)}")
+        LogUtil.e("arrayList is ${arrayList.contains("fifth")}")
         arrayList.add(2, "thirds")
-        println("arrayList is $arrayList")
+        LogUtil.e("arrayList is $arrayList")
         arrayList.set(2, "third")
-        println("arrayList is $arrayList")
-        println("arrayList is ${arrayList.indexOf("fifth")}")
+        LogUtil.e("arrayList is $arrayList")
+        LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
 
 
         val linkedList = CusLinkedList<String>()

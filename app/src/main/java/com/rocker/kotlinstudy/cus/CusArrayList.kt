@@ -13,8 +13,7 @@ class CusArrayList<E>() : CusAbstractList<E>() {
     var elements: Array<Any?>
 
     constructor(elementSize: Int) : this(){
-        if(elementSize >= 5)
-            this.elementSize = elementSize
+        this.elementSize = if(elementSize >= 5) elementSize else DEFAULT_BUFFER_SIZE
     }
 
     init {
@@ -30,14 +29,14 @@ class CusArrayList<E>() : CusAbstractList<E>() {
     }
 
     override fun add(element: E?) {
-        expandArray()
+        expandArray(size + 1)
         elements[size] = element
         size ++
     }
 
     override fun add(index: Int, element: E?) {
         rangeCheck(index)
-        expandArray()
+        expandArray(size + 1)
         for(i in size downTo index){
             if(i == index)
                 elements[i] = element
@@ -80,19 +79,12 @@ class CusArrayList<E>() : CusAbstractList<E>() {
     /**
      * 扩容
      */
-    fun expandArray(){
-        if(size == elements.size){
+    private fun expandArray(newSize: Int){
+        if(newSize == elements.size){
             val temp = arrayOfNulls<Any>((elementSize * ELEMENT_EXPAND_RATE).toInt())
             elements.mapIndexed { index, any -> temp[index] = any }
             elements = temp
         }
     }
 
-    override fun toString(): String {
-        val temp = StringBuilder("array value is [ ")
-        for(i in 0 until size)
-            temp.append("${elements[i]}  ")
-        temp.append(" ]")
-        return temp.toString()
-    }
 }
