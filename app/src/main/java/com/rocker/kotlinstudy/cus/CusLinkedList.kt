@@ -82,25 +82,27 @@ class CusLinkedList<E> : CusAbstractList<E>() {
         size ++
     }
 
-    override fun remove(index: Int): E? {//todo element有问题
+    override fun remove(index: Int): E? {
         rangeCheck(index)
-        size --
         var temp: Node<E>? = first
         if(index == 0){
             first = if(size > 1)
                 first!!.next
             else
                 null
+            size --
             return temp!!.element
         }
         for(i in 0 until size){
             if(i == index - 1){
-                return if(i != size - 1){
-                    temp!!.next = temp.next!!.next
-                    temp.element
+                val delete = temp!!.next
+                size --
+                return if(i != size - 2){
+                    temp.next = delete!!.next
+                    delete.element
                 }else{
-                    temp!!.next = null
-                    temp.element
+                    temp.next = null
+                    delete!!.element
                 }
             } else
                 temp = temp!!.next
