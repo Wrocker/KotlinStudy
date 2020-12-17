@@ -2,7 +2,7 @@ package com.rocker.kotlinstudy.ui.activity.start
 
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.cus.CusArrayList
-import com.rocker.kotlinstudy.cus.CusLinkedList
+import com.rocker.kotlinstudy.cus.SingleLinkedList
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
 import com.rocker.kotlinstudy.util.LogUtil
@@ -46,7 +46,7 @@ class BasicActivity : BaseLoadListActivity() {
         LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
 
 
-        val linkedList = CusLinkedList<String>()
+        val linkedList = SingleLinkedList<String>()
         linkedList.add("first")
         linkedList.add("second")
         linkedList.add("third")

@@ -1,13 +1,15 @@
 package com.rocker.kotlinstudy.cus
 
-class CusLinkedList<E> : CusAbstractList<E>() {
+class DoubleLinkedList<E> : CusAbstractList<E>() {
     var first: Node<E>? = null
+    var end: Node<E>? = null
 
-    class Node<E>(var element: E?, var next: Node<E>? = null)
+    class Node<E>(var element: E?, var prev: Node<E>?, var next: Node<E>?)
 
     override fun clear() {
         size = 0
         first = null
+        end = null
     }
 
     override fun contains(element: E?): Boolean {
@@ -24,22 +26,18 @@ class CusLinkedList<E> : CusAbstractList<E>() {
 
     override fun add(element: E?) {
         if(size == 0){
-            first = Node(element)
+            first = Node(element, null, null)
             size ++
             return
         }
         var temp: Node<E>? = first
         for(i in 0 until size){
             if(i == size - 1)
-                temp!!.next = Node(element)
+                temp!!.next = Node(element, null, null)
             else
                 temp = temp!!.next
         }
         size ++
-        //0 first -> second
-        //1 second -> third
-        //2 third -> fourth
-        //3 fourth -> fifth
     }
 
     override fun get(index: Int): E? {
@@ -75,7 +73,7 @@ class CusLinkedList<E> : CusAbstractList<E>() {
             if(i == index){
                 val last: E? = temp!!.element
                 temp.element = element
-                temp.next = Node(last, temp.next)
+                temp.next = Node(last, temp.next, null)
             } else
                 temp = temp!!.next
         }
@@ -121,8 +119,24 @@ class CusLinkedList<E> : CusAbstractList<E>() {
         return ELEMENT_NOT_FOUND
     }
 
+    private fun nodeOf(index: Int): Node<E>? {
+        var temp: Node<E>?
+        if(index < size shr 1){
+            temp = first
+            for(i in 0 .. index){
+                temp = temp?.next
+            }
+        }else{
+            temp = end
+            for(i in size downTo index){
+                temp = temp?.prev
+            }
+        }
+        return temp
+    }
+
     override fun toString(): String {
-        val value = StringBuilder("LinkedList value is [ ")
+        val value = StringBuilder("CircleLinkedList value is [ ")
         var temp = first
         for(i in 0 until size){
             value.append("${temp!!.element}  ")
