@@ -1,9 +1,12 @@
 package com.rocker.kotlinstudy.cus
 
+/**
+ * 单向链表
+ */
 class SingleLinkedList<E> : CusAbstractList<E>() {
-    var first: Node<E>? = null
+    private var first: Node<E>? = null
 
-    class Node<E>(var element: E?, var next: Node<E>? = null)
+    private class Node<E>(var element: E?, var next: Node<E>? = null)
 
     override fun clear() {
         size = 0

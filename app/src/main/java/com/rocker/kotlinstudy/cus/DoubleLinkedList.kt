@@ -1,10 +1,19 @@
 package com.rocker.kotlinstudy.cus
 
-class DoubleLinkedList<E> : CusAbstractList<E>() {
-    var first: Node<E>? = null
-    var end: Node<E>? = null
+import com.rocker.kotlinstudy.util.LogUtil
 
-    class Node<E>(var element: E?, var prev: Node<E>?, var next: Node<E>?)
+/**
+ * 双向链表
+ */
+class DoubleLinkedList<E> : CusAbstractList<E>() {
+    private var first: Node<E>? = null
+    private var end: Node<E>? = null
+
+    private class Node<E>(var element: E?, var prev: Node<E>?, var next: Node<E>?){
+        override fun toString(): String {
+            return "|prev:${prev?.element} -> $element -> next:${next?.element}|"
+        }
+    }
 
     override fun clear() {
         size = 0
@@ -27,93 +36,62 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
     override fun add(element: E?) {
         if(size == 0){
             first = Node(element, null, null)
+            end = first
             size ++
             return
         }
-        var temp: Node<E>? = first
-        for(i in 0 until size){
-            if(i == size - 1)
-                temp!!.next = Node(element, null, null)
-            else
-                temp = temp!!.next
-        }
+        val temp = end
+        end = Node(element, temp, null)
+        temp!!.next = end
         size ++
     }
 
     override fun get(index: Int): E? {
         rangeCheck(index)
-        var temp: Node<E>? = first
-        for(i in 0 until size){
-            if(i == index)
-                return temp!!.element
-            else
-                temp = temp!!.next
-        }
-        return null
+        return nodeOf(index)?.element
     }
 
     override fun set(index: Int, element: E): E? {
         rangeCheck(index)
-        var temp: Node<E>? = first
-        for(i in 0 until size){
-            if(i == index){
-                val last: E? = temp!!.element
-                temp.element = element
-                return last
-            } else
-                temp = temp!!.next
-        }
-        return null
+        val current = nodeOf(index)
+        val temp = current!!.element
+        current.element = element
+        return temp
     }
 
     override fun add(index: Int, element: E?) {
         rangeCheck(index)
-        var temp: Node<E>? = first
-        for(i in 0 until size){
-            if(i == index){
-                val last: E? = temp!!.element
-                temp.element = element
-                temp.next = Node(last, temp.next, null)
-            } else
-                temp = temp!!.next
-        }
+        val current = nodeOf(index)
+        val prev = current!!.prev
+        val temp = Node(element, prev, current)
+        current.prev = temp
         size ++
     }
 
     override fun remove(index: Int): E? {
         rangeCheck(index)
-        var temp: Node<E>? = first
-        if(index == 0){
-            first = if(size > 1)
-                first!!.next
-            else
-                null
-            size --
-            return temp!!.element
+        val remove: Node<E> = nodeOf(index) ?: return null
+        val prev = remove.prev
+        val next = remove.next
+        if(prev == null){
+            first = next
+            next?.prev = null
+        } else{
+            prev.next = next
+            next?.prev = prev
         }
-        for(i in 0 until size){
-            if(i == index - 1){
-                val delete = temp!!.next
-                size --
-                return if(i != size - 2){
-                    temp.next = delete!!.next
-                    delete.element
-                }else{
-                    temp.next = null
-                    delete!!.element
-                }
-            } else
-                temp = temp!!.next
-        }
-        return null
+        if(end == remove)
+            end = prev?.next
+        size --
+        return remove.element
     }
 
     override fun indexOf(element: E?): Int {
         var temp: Node<E>? = first
         for(i in 0 until size){
-            if(temp!!.element == element){
+            if(temp!!.element == element)
                 return i
-            } else
+            else
                 temp = temp.next
         }
         return ELEMENT_NOT_FOUND
@@ -123,26 +101,32 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
         var temp: Node<E>?
         if(index < size shr 1){
             temp = first
-            for(i in 0 .. index){
+            for(i in 0 until index){
                 temp = temp?.next
             }
         }else{
             temp = end
-            for(i in size downTo index){
-                temp = temp?.prev
+            LogUtil.e("::: $size")
+            for(i in (size - 1) downTo index){
+                LogUtil.e("index : $i + ${temp?.element}")
+                if(i != index)
+                    temp = temp?.prev
             }
         }
         return temp
     }
 
     override fun toString(): String {
-        val value = StringBuilder("CircleLinkedList value is [ ")
+        val value = StringBuilder("DoubleLinkedList value is [ ")
         var temp = first
         for(i in 0 until size){
-            value.append("${temp!!.element}  ")
-            temp = temp.next
+            LogUtil.e("tostring $i")//todo 问题
+            value.append(temp)
+            temp = temp!!.next
         }
         value.append(" ]")
+        value.append(first)
+        value.append(end)
         return value.toString()
     }
 }

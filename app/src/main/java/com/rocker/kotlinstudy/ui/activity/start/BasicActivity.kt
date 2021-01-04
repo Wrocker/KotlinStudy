@@ -1,11 +1,8 @@
 package com.rocker.kotlinstudy.ui.activity.start
 
 import com.rocker.kotlinstudy.R
-import com.rocker.kotlinstudy.cus.CusArrayList
-import com.rocker.kotlinstudy.cus.SingleLinkedList
 import com.rocker.kotlinstudy.ui.activity.BaseLoadListActivity
 import com.rocker.kotlinstudy.ui.adapter.ContentLayoutAdapter
-import com.rocker.kotlinstudy.util.LogUtil
 import com.rocker.kotlinstudy.util.ToastUtil
 import kotlin.properties.Delegates
 
@@ -27,41 +24,6 @@ class BasicActivity : BaseLoadListActivity() {
         data.add(ContentLayoutAdapter.LayType("♦️ 方法"))
         adapter.data = data
         adapter.notifyDataSetChanged()
-
-        val arrayList = CusArrayList<String>(5)
-        arrayList.add("first")
-        arrayList.add("second")
-        arrayList.add("third")
-        arrayList.add("fourth")
-        arrayList.add("fifth")
-        LogUtil.e("arrayList is $arrayList")
-        arrayList.remove(2)
-        LogUtil.e("arrayList is $arrayList")
-        LogUtil.e("arrayList is ${arrayList.get(2)}")
-        LogUtil.e("arrayList is ${arrayList.contains("fifth")}")
-        arrayList.add(2, "thirds")
-        LogUtil.e("arrayList is $arrayList")
-        arrayList.set(2, "third")
-        LogUtil.e("arrayList is $arrayList")
-        LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
-
-
-        val linkedList = SingleLinkedList<String>()
-        linkedList.add("first")
-        linkedList.add("second")
-        linkedList.add("third")
-        linkedList.add("fourth")
-        linkedList.add("fifth")
-        LogUtil.e("linkedList is $linkedList")
-        linkedList.remove(0)
-        LogUtil.e("linkedList is $linkedList")
-        LogUtil.e("linkedList is ${linkedList.get(2)}")
-        LogUtil.e("linkedList is ${linkedList.contains("fifth")}")
-        linkedList.add(2, "thirds")
-        LogUtil.e("linkedList is $linkedList")
-        linkedList.set(2, "third")
-        LogUtil.e("linkedList is $linkedList")
-        LogUtil.e("linkedList is ${linkedList.indexOf("fifth")}")
     }
 
     /**
