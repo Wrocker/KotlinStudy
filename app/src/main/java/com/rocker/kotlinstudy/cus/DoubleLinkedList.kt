@@ -1,13 +1,15 @@
 package com.rocker.kotlinstudy.cus
 
+import com.rocker.kotlinstudy.util.LogUtil
+
 /**
  * 双向链表
  */
-class DoubleLinkedList<E> : CusAbstractList<E>() {
-    private var first: Node<E>? = null
-    private var end: Node<E>? = null
+open class DoubleLinkedList<E> : CusAbstractList<E>() {
+    var first: Node<E>? = null
+    var end: Node<E>? = null
 
-    private class Node<E>(var element: E?, var prev: Node<E>?, var next: Node<E>?){
+    class Node<E>(var element: E?, var prev: Node<E>?, var next: Node<E>?){
         override fun toString(): String {
             return "|prev:${prev?.element} -> $element -> next:${next?.element}|"
         }
@@ -110,7 +112,7 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
      * 注意.next/.prev 步骤会提前一步
      * 倒序的时候注意index==size的情况（ add 时可能传入）
      */
-    private fun nodeOf(index: Int): Node<E>? {
+    fun nodeOf(index: Int): Node<E>? {
         var temp: Node<E>?
         if(index < size shr 1){
             temp = first
@@ -133,10 +135,13 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
         val value = StringBuilder("DoubleLinkedList value is [ $size")
         var temp = first
         for(i in 0 until size){
+            LogUtil.e("___$i _ $temp")
             value.append(temp)
             temp = temp!!.next
         }
         value.append(" ]")
+        LogUtil.e("___first _ $first")
+        LogUtil.e("___end   _ $end")
         value.append(first)
         value.append(end)
         return value.toString()

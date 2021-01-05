@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
+import com.rocker.kotlinstudy.cus.DoubleCircularLinkedList
 import com.rocker.kotlinstudy.cus.DoubleLinkedList
 import com.rocker.kotlinstudy.cus.SingleCircularLinkedList
 import com.rocker.kotlinstudy.cus.SingleLinkedList
@@ -111,18 +112,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //                        LogUtil.e("arrayList is $arrayList")
 //                        LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
 
-                        val linkedList = SingleLinkedList<String>()
+                        val linkedList = DoubleCircularLinkedList<String>()
                         linkedList.add("first")
                         linkedList.add("second")
                         linkedList.add("third")
                         linkedList.add("fourth")
                         linkedList.add("fifth")
                         LogUtil.e(linkedList.toString())
-                        linkedList.remove(0)
+                        linkedList.remove(4)
                         LogUtil.e(linkedList.toString())
                         LogUtil.e("linkedList is ${linkedList.get(3)}")
                         LogUtil.e("linkedList is ${linkedList.contains("fifth")}")
-                        linkedList.add(0, "first")
+                        linkedList.add(4, "sixth")
                         LogUtil.e(linkedList.toString())
                         linkedList.set(3, "fourth >")
                         LogUtil.e(linkedList.toString())

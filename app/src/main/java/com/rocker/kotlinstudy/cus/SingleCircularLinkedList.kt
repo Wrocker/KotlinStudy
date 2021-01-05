@@ -12,7 +12,6 @@ class SingleCircularLinkedList<E> : SingleLinkedList<E>() {
         end = null
     }
 
-    @Override
     override fun add(element: E?) {
         if(size == 0){
             first = Node(element, null)
@@ -27,7 +26,6 @@ class SingleCircularLinkedList<E> : SingleLinkedList<E>() {
         size ++
     }
 
-    @Override
     override fun add(index: Int, element: E?) {
         if(index == size){
             add(element)
@@ -51,7 +49,6 @@ class SingleCircularLinkedList<E> : SingleLinkedList<E>() {
         size ++
     }
 
-    @Override
     override fun remove(index: Int): E? {
         rangeCheck(index)
         var temp = first
