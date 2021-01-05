@@ -1,7 +1,5 @@
 package com.rocker.kotlinstudy.cus
 
-import com.rocker.kotlinstudy.util.LogUtil
-
 /**
  * 双向链表
  */
@@ -59,12 +57,23 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
         return temp
     }
 
+    /**
+     * 临界条件
+     * 1、size = 0，index = 0的情况
+     * 2、index = size的情况
+     */
     override fun add(index: Int, element: E?) {
-        rangeCheck(index)
+        if(index != size)
+            rangeCheck(index)
         val current = nodeOf(index)
-        val prev = current!!.prev
+        val prev = current?.prev ?: end
         val temp = Node(element, prev, current)
-        current.prev = temp
+        prev?.next = temp
+        current?.prev = temp
+        if(index == 0)
+            first = temp
+        if(index == size)
+            end = temp
         size ++
     }
 
@@ -97,6 +106,10 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
         return ELEMENT_NOT_FOUND
     }
 
+    /**
+     * 注意.next/.prev 步骤会提前一步
+     * 倒序的时候注意index==size的情况（ add 时可能传入）
+     */
     private fun nodeOf(index: Int): Node<E>? {
         var temp: Node<E>?
         if(index < size shr 1){
@@ -106,9 +119,9 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
             }
         }else{
             temp = end
-            LogUtil.e("::: $size")
+            if(index == size)
+                return null
             for(i in (size - 1) downTo index){
-                LogUtil.e("index : $i + ${temp?.element}")
                 if(i != index)
                     temp = temp?.prev
             }
@@ -117,10 +130,9 @@ class DoubleLinkedList<E> : CusAbstractList<E>() {
     }
 
     override fun toString(): String {
-        val value = StringBuilder("DoubleLinkedList value is [ ")
+        val value = StringBuilder("DoubleLinkedList value is [ $size")
         var temp = first
         for(i in 0 until size){
-            LogUtil.e("tostring $i")//todo 问题
             value.append(temp)
             temp = temp!!.next
         }

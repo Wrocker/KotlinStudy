@@ -108,6 +108,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //                        arrayList.set(2, "third")
 //                        LogUtil.e("arrayList is $arrayList")
 //                        LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
+
                         val linkedList = DoubleLinkedList<String>()
                         linkedList.add("first")
                         linkedList.add("second")
@@ -117,11 +118,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         LogUtil.e(linkedList.toString())
                         linkedList.remove(0)
                         LogUtil.e(linkedList.toString())
-                        LogUtil.e("linkedList is ${linkedList.get(2)}")
+                        LogUtil.e("linkedList is ${linkedList.get(3)}")
                         LogUtil.e("linkedList is ${linkedList.contains("fifth")}")
-                        linkedList.add(2, "thirds")
+                        linkedList.add(4, "sixth")
                         LogUtil.e(linkedList.toString())
-                        linkedList.set(2, "third")
+                        linkedList.set(2, "fourth>")
                         LogUtil.e(linkedList.toString())
                         LogUtil.e("linkedList is ${linkedList.indexOf("fifth")}")
                     }
