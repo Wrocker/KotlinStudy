@@ -7,6 +7,8 @@ import com.rocker.kotlinstudy.R
 import com.rocker.kotlinstudy.base.adapter.BaseRecAdapter
 import com.rocker.kotlinstudy.base.ui.BaseActivity
 import com.rocker.kotlinstudy.cus.DoubleLinkedList
+import com.rocker.kotlinstudy.cus.SingleCircularLinkedList
+import com.rocker.kotlinstudy.cus.SingleLinkedList
 import com.rocker.kotlinstudy.databinding.ActivityMainBinding
 import com.rocker.kotlinstudy.ui.activity.basic.BasicTypesActivity
 import com.rocker.kotlinstudy.ui.activity.basic.ControlFlowActivity
@@ -109,7 +111,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //                        LogUtil.e("arrayList is $arrayList")
 //                        LogUtil.e("arrayList is ${arrayList.indexOf("fifth")}")
 
-                        val linkedList = DoubleLinkedList<String>()
+                        val linkedList = SingleLinkedList<String>()
                         linkedList.add("first")
                         linkedList.add("second")
                         linkedList.add("third")
@@ -120,11 +122,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         LogUtil.e(linkedList.toString())
                         LogUtil.e("linkedList is ${linkedList.get(3)}")
                         LogUtil.e("linkedList is ${linkedList.contains("fifth")}")
-                        linkedList.add(4, "sixth")
+                        linkedList.add(0, "first")
                         LogUtil.e(linkedList.toString())
-                        linkedList.set(2, "fourth>")
+                        linkedList.set(3, "fourth >")
                         LogUtil.e(linkedList.toString())
-                        LogUtil.e("linkedList is ${linkedList.indexOf("fifth")}")
+                        LogUtil.e("linkedList is ${linkedList.indexOf("six")}")
                     }
                     1 -> {
                         startActivity(Intent(this@MainActivity, BasicActivity::class.java))

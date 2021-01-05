@@ -3,10 +3,10 @@ package com.rocker.kotlinstudy.cus
 /**
  * 单向链表
  */
-class SingleLinkedList<E> : CusAbstractList<E>() {
-    private var first: Node<E>? = null
+open class SingleLinkedList<E> : CusAbstractList<E>() {
+    var first: Node<E>? = null
 
-    private class Node<E>(var element: E?, var next: Node<E>? = null)
+    class Node<E>(var element: E?, var next: Node<E>? = null)
 
     override fun clear() {
         size = 0
@@ -39,10 +39,6 @@ class SingleLinkedList<E> : CusAbstractList<E>() {
                 temp = temp!!.next
         }
         size ++
-        //0 first -> second
-        //1 second -> third
-        //2 third -> fourth
-        //3 fourth -> fifth
     }
 
     override fun get(index: Int): E? {
@@ -72,6 +68,10 @@ class SingleLinkedList<E> : CusAbstractList<E>() {
     }
 
     override fun add(index: Int, element: E?) {
+        if(index == size) {
+            add(element)
+            return
+        }
         rangeCheck(index)
         var temp: Node<E>? = first
         for(i in 0 until size){
@@ -79,6 +79,7 @@ class SingleLinkedList<E> : CusAbstractList<E>() {
                 val last: E? = temp!!.element
                 temp.element = element
                 temp.next = Node(last, temp.next)
+                break
             } else
                 temp = temp!!.next
         }
@@ -100,7 +101,7 @@ class SingleLinkedList<E> : CusAbstractList<E>() {
             if(i == index - 1){
                 val delete = temp!!.next
                 size --
-                return if(i != size - 2){
+                return if(i != size - 1){
                     temp.next = delete!!.next
                     delete.element
                 }else{
